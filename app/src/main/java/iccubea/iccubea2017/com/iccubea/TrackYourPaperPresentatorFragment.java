@@ -287,7 +287,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         });
         dialog.show();
     }
-//Changing things here
+
     public void displayDialog1(String trackName, final String strinNumber,final String name)
     {
         final Dialog dialog1 = new Dialog(getActivity());
