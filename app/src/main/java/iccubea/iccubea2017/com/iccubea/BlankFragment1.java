@@ -31,6 +31,7 @@ public class BlankFragment1 extends Fragment {
         tv103 = (TextView)view.findViewById(R.id.textView103);
         tv104 = (TextView)view.findViewById(R.id.textView104);
         tv105 = (TextView)view.findViewById(R.id.textView105);
+        //just for test
 /*        tv106 = (TextView)view.findViewById(R.id.textView106);
         tv107 = (TextView)view.findViewById(R.id.textView107);
         tv108 = (TextView)view.findViewById(R.id.textView108);
