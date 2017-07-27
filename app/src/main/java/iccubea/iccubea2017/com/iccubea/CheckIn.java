@@ -24,9 +24,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import android.os.Handler;
-
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
+
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 
 import uk.co.senab.photoview.PhotoViewAttacher;
 
@@ -40,7 +42,6 @@ public class CheckIn extends AppCompatActivity implements AdapterView.OnItemSele
     PhotoViewAttacher photoViewAttacher;
     ImageView imageView;
     BottomNavigationView bottomNavigationView ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,8 +129,11 @@ public class CheckIn extends AppCompatActivity implements AdapterView.OnItemSele
 
         @Override
         public void onBackPressed() {
-            Intent intent = new Intent(CheckIn.this,MainActivity.class);
+
             //intent.putExtra("key",1);
+            Intent intent = new Intent(CheckIn.this, MainActivity.class);
+            intent.putExtra("key",1);
+
             startActivity(intent);
             finish();
             super.onBackPressed();

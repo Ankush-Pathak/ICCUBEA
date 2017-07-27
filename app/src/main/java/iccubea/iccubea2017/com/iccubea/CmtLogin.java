@@ -11,6 +11,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -217,7 +218,9 @@ public class CmtLogin extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(CmtLogin.this,MainActivity.class);
+
         //intent.putExtra("key",1);
+
         startActivity(intent);
         finish();
     }

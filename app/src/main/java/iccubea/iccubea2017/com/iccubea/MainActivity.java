@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.CountDownTimer;
 
+
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,12 +17,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     CountDownTimer countDownTimerSec, countDownTimerHrs, countDownTimerMin, countDownTimerDays;
     int spinnerBarWidth, spinnerTextSize,contourSize,i;
 
+
     BottomBar mbottomBar;
     BottomNavigationView bottomNavigationView;
 
@@ -60,8 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         System.gc();
         setContentView(R.layout.activity_main);
-
-         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(0);
@@ -124,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //updateDays();
         updateSeconds();
        // btnMoveUp.setOnClickListener(MainActivity.this);
+//        btnMoveUp.setOnClickListener(MainActivity.this);
         if(getIntent().getExtras()!=null)
         {
             final Bundle bundle = getIntent().getExtras();
@@ -142,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         height = this.getResources().getDisplayMetrics().heightPixels;
         offset = this.getResources().getDisplayMetrics().densityDpi;
         offset = offset * 0.55;
+
        //  btnMoveUp = (Button) findViewById(R.id.);
        // btnMoveUp.setText("^");
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
@@ -159,6 +162,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //textView = (TextView) findViewById(R.id.textView2);
         //textView.setTypeface(typeface);
         buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
+/*
+        btnMoveUp = (Button) findViewById(R.id.btnMoveUp);
+        btnMoveUp.setText("^");
+        circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
+        dateTime = new DateTime(2017, 8, 17,9, 05);
+        dateTimeNow = DateTime.now();
+        circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
+        circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
+        circleProgressViewDays = (CircleProgressView) findViewById(R.id.circularProgressDays);
+        circleProgressViewSec.setTextTypeface(typeface);
+        circleProgressViewMin.setTextTypeface(typeface);
+        circleProgressViewHrs.setTextTypeface(typeface);
+        circleProgressViewDays.setTextTypeface(typeface);
+        spinnerBarWidth = circleProgressViewSec.getBarWidth() - 25;
+        spinnerTextSize = circleProgressViewSec.getTextSize() + 45;
+        contourSize = 3;
+        textView = (TextView) findViewById(R.id.textView2);
+        textView.setTypeface(typeface);
+        buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
+*/
         buttonProceeding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -181,9 +204,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void updateSeconds() {
 
+
         circleProgressViewSec.setBarColor(Color.parseColor("#3F51B5"));
         circleProgressViewSec.setMaxValue(59);
         circleProgressViewSec.setValueAnimated(100);
+
+        circleProgressViewSec.setBarColor(Color.parseColor("#ff7043"));
+        circleProgressViewSec.setMaxValue(60);
+        //circleProgressViewSec.setValueAnimated(100);
         //circleProgressViewSec.setText(String.valueOf(period.getDays()));
         circleProgressViewSec.setTextSize(spinnerTextSize);
         circleProgressViewSec.setShowTextWhileSpinning(false);
@@ -204,6 +232,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //countDownTimerDays.cancel();
                         //countDownTimerHrs.cancel();
                        // countDownTimerMin.cancel();
+
                         TextView textView = (TextView)findViewById(R.id.textView2);
                         textView.setText("Welcome to cPGCON 2016!");
                         textView.setTextColor(Color.parseColor("#ff7043"));
@@ -219,6 +248,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     circleProgressViewSec.setValueAnimated(periodSec.getSeconds());
                     if (periodSec.getSeconds() == 59) {
                         circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
+
                        // circleProgressViewHrs.setValueAnimated(periodHrs.getHours());
                         circleProgressViewMin.setText(String.valueOf(periodMin.getMinutes()) + "min");
                         //circleProgressViewMin.setValueAnimated(periodMin.getMinutes());
@@ -254,7 +284,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //circleProgressViewSec.setValueAnimated(0,60,60000);
     }
 
+
    /* void updateHrs() {
+
 
         circleProgressViewHrs.setBarColor(Color.parseColor("#ff7043"));
         circleProgressViewHrs.setMaxValue(24);
@@ -363,8 +395,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         /*circleProgressViewDays.setText(String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()));
         circleProgressViewDays.setValueAnimated(Days.daysBetween(dateTimeNow, dateTime).getDays());
+
         */
    /*if (!dateTimeNow.isAfter(dateTime)) {
+
             countDownTimerDays = new CountDownTimer(dateTime.getMillis(), 1000 * 60 * 60) {
                 @Override
                 public void onTick(long l) {
@@ -395,8 +429,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             frag_flag = 0;
             moveButton();
         }
+
         circleProgressViewSec.setValueAnimated(0,60,60000);
     }*/
+
 
 
     @Override
@@ -404,6 +440,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent;
         switch (view.getId()) {
             case R.id.btnAbout:
+
                 //Toast.makeText(this, "In btnMoveUp", Toast.LENGTH_LONG).show();
                 if (btnMoveUp.getText() == "^") {
                     moveButton();

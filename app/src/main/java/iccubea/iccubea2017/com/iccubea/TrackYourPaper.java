@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -47,7 +48,9 @@ public class TrackYourPaper extends AppCompatActivity implements AdapterView.OnI
     List<String>categories;
     Handler handler;
     TextView textview;
+
     BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,6 +158,7 @@ public class TrackYourPaper extends AppCompatActivity implements AdapterView.OnI
         mbottomBar.mapColorForTab(4,"#F44366");
 
         */
+
 
         editTextSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -295,14 +299,18 @@ public class TrackYourPaper extends AppCompatActivity implements AdapterView.OnI
         listView.setAdapter(displayResult);
     }
 
+
     //@Override
     /*public void onBackPressed() {
+
         super.onBackPressed();
         Intent intent = new Intent(TrackYourPaper.this,MainActivity.class);
         intent.putExtra("key",1);
         startActivity(intent);
         finish();
+
     }*/
+
     public void displayDialog(int i)
     {
         final Dialog dialog = new Dialog(this);

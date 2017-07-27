@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -21,6 +22,8 @@ import android.view.ViewGroup;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
+import android.view.View;
+import android.view.ViewGroup;
 public class Guidelines1 extends AppCompatActivity {
 
     /**
@@ -37,6 +40,7 @@ public class Guidelines1 extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
 
   //  BottomNavigationView bottomNavigationView;
    // BottomBar mbottomBar;
@@ -267,6 +271,7 @@ public class Guidelines1 extends AppCompatActivity {
         super.onBackPressed();
         Intent intent = new Intent(Guidelines1.this,MainActivity.class);
         //intent.putExtra("key",1);
+
         startActivity(intent);
         finish();
     }

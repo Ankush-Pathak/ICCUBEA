@@ -26,6 +26,7 @@ public class TrackYourPaperTabbed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_your_paper_tabbed);
 
+
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         //BottomNavigation Bar
@@ -88,6 +89,7 @@ public class TrackYourPaperTabbed extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this,MainActivity.class);
         //intent.putExtra("key",1);
+
         startActivity(intent);
         finish();
         super.onBackPressed();

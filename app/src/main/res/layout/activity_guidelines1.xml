@@ -38,6 +38,7 @@
 </android.support.design.widget.CoordinatorLayout>
 
 
+
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavView_Bar"
         android:layout_width="match_parent"

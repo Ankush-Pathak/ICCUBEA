@@ -12,6 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+
+
+
 public class AboutTabbed extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
@@ -19,6 +23,7 @@ public class AboutTabbed extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_tabbed);
+
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -74,13 +79,14 @@ public class AboutTabbed extends AppCompatActivity {
                 return true;
             }
         });
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("About PCCoE"));
-        //tabLayout.addTab(tabLayout.newTab().setText("About Dept"));
         tabLayout.addTab(tabLayout.newTab().setText("About ICCUBEA"));
+        //tabLayout.addTab(tabLayout.newTab().setText("About Dept"));
+        tabLayout.addTab(tabLayout.newTab().setText("About PCCOE"));
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
         final PagerAdapter adapter = new TabbedPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
@@ -111,7 +117,6 @@ public class AboutTabbed extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(AboutTabbed.this,MainActivity.class);
-       // intent.putExtra("key",1);
         startActivity(intent);
         finish();
     }
