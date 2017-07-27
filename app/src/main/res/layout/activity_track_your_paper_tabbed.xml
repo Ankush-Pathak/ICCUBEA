@@ -8,11 +8,19 @@
     android:fitsSystemWindows="true"
     tools:context="iccubea.iccubea2017.com.iccubea.TrackYourPaperTabbed"
     android:orientation="vertical">
-
-
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
     <fragment
         android:id="@+id/fragment"
         android:name="iccubea.iccubea2017.com.iccubea.TrackYourPaperPresentatorFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
+
+
+
+    </RelativeLayout>
 </LinearLayout>

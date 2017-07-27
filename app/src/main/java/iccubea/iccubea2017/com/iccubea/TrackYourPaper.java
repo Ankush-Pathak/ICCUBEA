@@ -7,10 +7,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +30,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import android.os.Handler;
+
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 public class TrackYourPaper extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String[] paperId,paperDomain,location,date,time,resultsIds,resultsDom,resultsLoc,resultsDat,resultsTime;
@@ -40,12 +49,115 @@ public class TrackYourPaper extends AppCompatActivity implements AdapterView.OnI
     Handler handler;
     TextView textview;
 
+    BottomNavigationView bottomNavigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_your_paper);
         initialise();
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
+
+                if(item.getItemId() == R.id.navigation_button_TrackVenue)
+                {
+
+                }
+                else if(item.getItemId() == R.id.navigation_button_CMT)
+                {
+                    intent = new Intent(TrackYourPaper.this,CmtLogin.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+
+                }
+                else if(item.getItemId() == R.id.navigation_button_Location)
+                {
+                    //CheckIn checkIn = new CheckIn();
+                    intent = new Intent(TrackYourPaper.this,CheckIn.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_Instruction)
+                {
+                    intent = new Intent(TrackYourPaper.this,Guidelines1.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_About)
+                {
+                    intent = new Intent(TrackYourPaper.this,AboutTabbed.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                return true;
+            }
+        });
+
+
+        /*
+        mbottomBar = BottomBar.attach(this,savedInstanceState);
+        mbottomBar.setItemsFromMenu(R.menu.bottom_navigation_main, new OnMenuTabSelectedListener() {
+            @Override
+            public void onMenuItemSelected(@IdRes int menuItemId) {
+                Intent intent;
+                if(menuItemId == R.id.navigation_button_TrackVenue)
+                {
+
+                   /* intent = new Intent(TrackYourPaper.this,TrackYourPaper.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+                else if(menuItemId == R.id.navigation_button_CMT)
+                {
+                    intent = new Intent(TrackYourPaper.this,CmtLogin.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+
+                }
+                else if(menuItemId == R.id.navigation_button_Location)
+                {
+                    //CheckIn checkIn = new CheckIn();
+                    intent = new Intent(TrackYourPaper.this,CheckIn.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+                else if(menuItemId == R.id.navigation_button_Instruction)
+                {
+                    intent = new Intent(TrackYourPaper.this,Guidelines1.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+                else if(menuItemId == R.id.navigation_button_About)
+                {
+                    intent = new Intent(TrackYourPaper.this,About.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+            }
+        });
+        mbottomBar.mapColorForTab(0,"#F44366");
+        mbottomBar.mapColorForTab(1,"#9C2780");
+        mbottomBar.mapColorForTab(2,"#F44366");
+        mbottomBar.mapColorForTab(3,"#9C2780");
+        mbottomBar.mapColorForTab(4,"#F44366");
+
+        */
 
 
         editTextSearch.addTextChangedListener(new TextWatcher() {
@@ -187,14 +299,18 @@ public class TrackYourPaper extends AppCompatActivity implements AdapterView.OnI
         listView.setAdapter(displayResult);
     }
 
-    @Override
-    public void onBackPressed() {
+
+    //@Override
+    /*public void onBackPressed() {
+
         super.onBackPressed();
         Intent intent = new Intent(TrackYourPaper.this,MainActivity.class);
         intent.putExtra("key",1);
         startActivity(intent);
         finish();
-    }
+
+    }*/
+
     public void displayDialog(int i)
     {
         final Dialog dialog = new Dialog(this);

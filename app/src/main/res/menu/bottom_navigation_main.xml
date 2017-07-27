@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/navigation_button_TrackVenue"
+        android:icon="@drawable/ic_track_venue"
+        android:title="Track"
+
+    />
+    <item
+        android:id="@+id/navigation_button_CMT"
+        android:icon="@drawable/ic_cmt"
+        android:title="Login"
+        />
+    <item
+        android:id="@+id/navigation_button_Location"
+        android:icon="@drawable/ic_check_in"
+        android:title="Check In"
+        />
+    <item
+        android:id="@+id/navigation_button_Instruction"
+        android:icon="@drawable/ic_instructions"
+        android:title="Instructions"
+        />
+    <item
+        android:id="@+id/navigation_button_About"
+        android:icon="@drawable/ic_about_us"
+        android:title="About"
+        />
+</menu>
