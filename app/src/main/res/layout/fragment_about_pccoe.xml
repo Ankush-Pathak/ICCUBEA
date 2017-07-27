@@ -4,58 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="iccubea.iccubea2017.com.iccubea.SecondActivity"
+    tools:context="iccubea.iccubea2017.com.iccubea.AboutTabbed"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:nestedScrollingEnabled="false">
-
+    android:orientation="vertical">
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/first" >
+        android:layout_width="match_parent"
+        android:layout_height="455dp">
 
         <LinearLayout
-            android:orientation="vertical"
-            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="1">
+            android:background="#ffffff"
+            android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="false"
-                android:id="@+id/imageView"
-                android:maxHeight="40dp"
-                android:maxWidth="36dp"
-
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/abt_pccoe_title"
                 android:layout_alignEnd="@+id/abt_pccoe_title"
-                android:layout_marginTop="-40dp"
-                android:layout_marginBottom="0dp"
-                android:layout_weight="8.56"
-                android:src="@drawable/pccoe"
-                android:fitsSystemWindows="true"
-                app:layout_collapseMode="parallax" />
+                android:layout_alignRight="@+id/abt_pccoe_title"
+                android:adjustViewBounds="true"
+                android:paddingTop="5dp"
+                android:src="@drawable/pccoe" />
 
             <TextView
+                android:id="@+id/textViewInfoPccoe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/infoPccoe"
-                android:id="@+id/infoPccoe"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="-40dp"
+                android:paddingTop="25dp"
+                android:text="@string/infoPccoe"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                android:gravity="center" />
+                android:textSize="20sp" />
 
         </LinearLayout>
     </ScrollView>
-
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavView_Bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_main"
+        android:background="@drawable/white_gray_border"
+        android:layout_alignParentBottom="true"
+        />
 </RelativeLayout>
+
+
 

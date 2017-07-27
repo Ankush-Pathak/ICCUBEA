@@ -1,6 +1,10 @@
 package iccubea.iccubea2017.com.iccubea;
 
 import android.content.Intent;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -10,9 +14,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabSelectedListener;
+
+import android.view.View;
+import android.view.ViewGroup;
 public class Guidelines1 extends AppCompatActivity {
 
     /**
@@ -30,11 +41,117 @@ public class Guidelines1 extends AppCompatActivity {
      */
     private ViewPager mViewPager;
 
+
+  //  BottomNavigationView bottomNavigationView;
+   // BottomBar mbottomBar;
+  BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guidelines1);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(3);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
+
+                if(item.getItemId() == R.id.navigation_button_TrackVenue)
+                {
+
+                    intent = new Intent(Guidelines1.this,TrackYourPaperTabbed.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_CMT)
+                {
+                    intent = new Intent(Guidelines1.this,CmtLogin.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+
+                }
+                else if(item.getItemId() == R.id.navigation_button_Location)
+                {
+                    //CheckIn checkIn = new CheckIn();
+                    intent = new Intent(Guidelines1.this,ActivityReachPCCOE.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_About)
+                {
+                    intent = new Intent(Guidelines1.this,AboutTabbed.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() ==R.id.navigation_button_Instruction)
+                {
+                    intent = new Intent(Guidelines1.this,Guidelines1.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                return true;
+            }
+        });
+
+        /*
+        mbottomBar = BottomBar.attach(this,savedInstanceState);
+        mbottomBar.setItemsFromMenu(R.menu.bottom_navigation_main, new OnMenuTabSelectedListener() {
+            @Override
+            public void onMenuItemSelected(@IdRes int menuItemId) {
+                Intent intent;
+                if(menuItemId == R.id.navigation_button_TrackVenue)
+                {
+
+                  intent = new Intent(Guidelines1.this,TrackYourPaper.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+                else if(menuItemId == R.id.navigation_button_CMT)
+                {
+                    intent = new Intent(Guidelines1.this,CmtLogin.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+
+                }
+                else if(menuItemId == R.id.navigation_button_Location)
+                {
+                    //CheckIn checkIn = new CheckIn();
+                    intent = new Intent(Guidelines1.this,CheckIn.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+                else if(menuItemId == R.id.navigation_button_Instruction)
+                {
+                    /*intent = new Intent(Guidelines1.this,Guidelines1.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+                else if(menuItemId == R.id.navigation_button_About)
+                {
+                    intent = new Intent(Guidelines1.this,About.class);
+                    startActivity(intent);
+                    overridePendingTransition(0,0);
+                }
+            }
+        });
+        mbottomBar.mapColorForTab(0,"#F44366");
+        mbottomBar.mapColorForTab(1,"#9C2780");
+        mbottomBar.mapColorForTab(2,"#F44366");
+        mbottomBar.mapColorForTab(3,"#9C2780");
+        mbottomBar.mapColorForTab(4,"#F44366");
+    */
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -153,7 +270,8 @@ public class Guidelines1 extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(Guidelines1.this,MainActivity.class);
-        intent.putExtra("key",1);
+        //intent.putExtra("key",1);
+
         startActivity(intent);
         finish();
     }

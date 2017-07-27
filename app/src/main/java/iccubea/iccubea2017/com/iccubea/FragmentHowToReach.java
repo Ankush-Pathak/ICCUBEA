@@ -1,6 +1,9 @@
 package iccubea.iccubea2017.com.iccubea;
 
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +15,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -29,28 +33,32 @@ public class FragmentHowToReach extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         SupportMapFragment mapFragment;
-       View view = inflater.inflate(R.layout.fragment_how_to_reach, container, false);
-        if(getActivity().getSupportFragmentManager().findFragmentById(R.id.mapFragment) == null) {
-            mapFragment = SupportMapFragment.newInstance();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mapFragment, mapFragment).commit();
-        }
-        else
-            mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapFragment);
-        mapFragment.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                mMap = googleMap;
-               // trackGPS = new TrackGPS(FragmentHowToReach.this);
+
+        View view = inflater.inflate(R.layout.fragment_how_to_reach, container, false);
 
 
-                LatLng iccubea2017 = new LatLng(18.6505, 73.7786);
 
-                mMap.addMarker(new MarkerOptions().position(iccubea2017).title("ICCUBEA 2017"));
-                float zoomLevel = 16.0f;
+            if (getActivity().getSupportFragmentManager().findFragmentById(R.id.mapFragment) == null) {
+                mapFragment = SupportMapFragment.newInstance();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.mapFragment, mapFragment).commit();
+            } else
+                mapFragment = (SupportMapFragment) getActivity().getSupportFragmentManager().findFragmentById(R.id.mapFragment);
+            mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap googleMap) {
+                    mMap = googleMap;
+                    // trackGPS = new TrackGPS(FragmentHowToReach.this);
 
-                mMap.animateCamera(CameraUpdateFactory.newLatLng(iccubea2017));
 
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(iccubea2017, zoomLevel));
+                    LatLng iccubea2017 = new LatLng(18.651371, 73.761701);
+
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(iccubea2017).title("ICCUBEA 2017"));
+                    marker.showInfoWindow();
+                    float zoomLevel = 16.0f;
+
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(iccubea2017));
+
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(iccubea2017, zoomLevel));
 
                /* Polyline line = mMap.addPolyline(new PolylineOptions()
                         .add(new LatLng(51.5, -0.1), new LatLng(40.7, -74.0))
@@ -58,11 +66,16 @@ public class FragmentHowToReach extends Fragment {
                         .color(Color.RED));*/
 
 
-            }
+                }
 
 
-        });
+            });
 
+        {
+            Intent intent = new Intent(getActivity(),map_zoom.class);
+            startActivity(intent);
+
+        }
 
         return view;
     }

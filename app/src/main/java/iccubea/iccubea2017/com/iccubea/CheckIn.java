@@ -5,8 +5,13 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,8 +24,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import android.os.Handler;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 import uk.co.senab.photoview.PhotoViewAttacher;
+
+
+import uk.co.senab.photoview.PhotoViewAttacher;
+
 
 public class CheckIn extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button call;
@@ -30,11 +41,70 @@ public class CheckIn extends AppCompatActivity implements AdapterView.OnItemSele
     Handler handler;
     PhotoViewAttacher photoViewAttacher;
     ImageView imageView;
+    BottomNavigationView bottomNavigationView ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_in);
+
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(2);
+        menuItem.setChecked(true);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
+
+                if(item.getItemId() == R.id.navigation_button_TrackVenue)
+                {
+
+                    intent = new Intent(CheckIn.this,TrackYourPaperTabbed.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_CMT)
+                {
+                    intent = new Intent(CheckIn.this,CmtLogin.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+
+
+                }
+                else if(item.getItemId() == R.id.navigation_button_Location)
+                {
+                    intent = new Intent(CheckIn.this,ActivityReachPCCOE.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_Instruction)
+                {
+                    intent = new Intent(CheckIn.this,Guidelines1.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_About)
+                {
+                    intent = new Intent(CheckIn.this,AboutTabbed.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                return true;
+            }
+        });
+
+
+
         categories=new ArrayList<String>();
         categories.add("Contact Us");
         categories.add("Incharge 1 : Dr.Sonali Patil");
@@ -59,8 +129,11 @@ public class CheckIn extends AppCompatActivity implements AdapterView.OnItemSele
 
         @Override
         public void onBackPressed() {
-            Intent intent = new Intent(CheckIn.this,MainActivity.class);
+
+            //intent.putExtra("key",1);
+            Intent intent = new Intent(CheckIn.this, MainActivity.class);
             intent.putExtra("key",1);
+
             startActivity(intent);
             finish();
             super.onBackPressed();

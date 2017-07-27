@@ -3,6 +3,8 @@ package iccubea.iccubea2017.com.iccubea;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -17,22 +19,7 @@ import android.view.MenuItem;
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
 public class TrackYourPaperTabbed extends AppCompatActivity {
-
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    SQLiteDatabase sqLiteDatabase;
-    private ViewPager mViewPager;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,103 +27,73 @@ public class TrackYourPaperTabbed extends AppCompatActivity {
         setContentView(R.layout.activity_track_your_paper_tabbed);
 
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        SQLiteAssetHelper sqLiteAssetHelper = new SQLiteAssetHelper(this,"database_2.db",null,1);
-        sqLiteDatabase = sqLiteAssetHelper.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.rawQuery("Select * from data",null);
-        cursor.moveToFirst();
-        cursor.close();
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        //BottomNavigation Bar
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        Menu menu = bottomNavigationView.getMenu();
+        MenuItem menuItem = menu.getItem(0);
+        menuItem.setChecked(true);
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
 
-    }
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent;
 
+                if(item.getItemId() == R.id.navigation_button_TrackVenue)
+                {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_track_your_paper_tabbed, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
+                    intent = new Intent(TrackYourPaperTabbed.this,TrackYourPaperTabbed.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_CMT)
+                {
+                    intent = new Intent(TrackYourPaperTabbed.this,CmtLogin.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
 
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+                }
+                else if(item.getItemId() == R.id.navigation_button_Location)
+                {
+                    intent = new Intent(TrackYourPaperTabbed.this,ActivityReachPCCOE.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            switch (position)
-            {
-                case 0:
-                    return new TrackYourPaperPresentatorFragment();
-
-                case 1:
-                    return new TrackYourPaperAttendeeFragment();
-
+                }
+                else if(item.getItemId() == R.id.navigation_button_Instruction)
+                {
+                    intent = new Intent(TrackYourPaperTabbed.this,Guidelines1.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                else if(item.getItemId() == R.id.navigation_button_About)
+                {
+                    intent = new Intent(TrackYourPaperTabbed.this,AboutTabbed.class);
+                    startActivity(intent);
+                    finish();
+                    overridePendingTransition(0,0);
+                }
+                return true;
             }
-            return null;
-        }
-
-        @Override
-        public int getCount() {
-            // Show 3 total pages.
-            return 2;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "Presenter";
-                case 1:
-                    return "Attendee";
-
-            }
-            return null;
-        }
+        });
     }
 
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this,MainActivity.class);
-        intent.putExtra("key",1);
+        //intent.putExtra("key",1);
+
         startActivity(intent);
         finish();
         super.onBackPressed();
     }
+
+
 }

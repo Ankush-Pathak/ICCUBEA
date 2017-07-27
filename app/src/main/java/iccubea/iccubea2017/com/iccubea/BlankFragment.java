@@ -103,7 +103,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener,View
 
             case R.id.btnAbout:
                 btnAbout.setBackgroundResource(R.drawable.about_animate);
-                intent = new Intent(getActivity(), About_tabbed.class);
+                intent = new Intent(getActivity(), AboutTabbed.class);
                 startActivity(intent);
                 break;
         }

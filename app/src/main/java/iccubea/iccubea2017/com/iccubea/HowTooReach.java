@@ -61,7 +61,7 @@ public class HowTooReach extends FragmentActivity implements OnMapReadyCallback 
 
         // Add a marker in Sydney and move the camera
         LatLng cpgconLoc = new LatLng(18.651671, 73.762027);
-        mMap.addMarker(new MarkerOptions().position(cpgconLoc).title("ICCUBEA 2017"));
+        mMap.addMarker(new MarkerOptions().position(cpgconLoc).title("cPGCON 2016"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cpgconLoc));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(12), 5000, null);
 

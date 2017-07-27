@@ -1,25 +1,29 @@
 package iccubea.iccubea2017.com.iccubea;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-public class ActivityReachPCCOE extends AppCompatActivity {
 
+
+
+
+public class AboutTabbed extends AppCompatActivity {
+
+    BottomNavigationView bottomNavigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reach_pccoe);
+        setContentView(R.layout.activity_about_tabbed);
 
-        BottomNavigationView bottomNavigationView;
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -37,14 +41,14 @@ public class ActivityReachPCCOE extends AppCompatActivity {
                 if(item.getItemId() == R.id.navigation_button_TrackVenue)
                 {
 
-                    intent = new Intent(ActivityReachPCCOE.this,TrackYourPaperTabbed.class);
+                    intent = new Intent(AboutTabbed.this,TrackYourPaperTabbed.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
                 }
                 else if(item.getItemId() == R.id.navigation_button_CMT)
                 {
-                    intent = new Intent(ActivityReachPCCOE.this,CmtLogin.class);
+                    intent = new Intent(AboutTabbed.this,CmtLogin.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
@@ -53,21 +57,21 @@ public class ActivityReachPCCOE extends AppCompatActivity {
                 else if(item.getItemId() == R.id.navigation_button_Location)
                 {
                     //CheckIn checkIn = new CheckIn();
-                    intent = new Intent(ActivityReachPCCOE.this,ActivityReachPCCOE.class);
+                    intent = new Intent(AboutTabbed.this,ActivityReachPCCOE.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(ActivityReachPCCOE.this,Guidelines1.class);
+                    intent = new Intent(AboutTabbed.this,Guidelines1.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
                 }
                 else if(item.getItemId() == R.id.navigation_button_About)
                 {
-                    intent = new Intent(ActivityReachPCCOE.this,AboutTabbed.class);
+                    intent = new Intent(AboutTabbed.this,AboutTabbed.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
@@ -76,14 +80,16 @@ public class ActivityReachPCCOE extends AppCompatActivity {
             }
         });
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("Reporting Area"));
+        tabLayout.addTab(tabLayout.newTab().setText("About ICCUBEA"));
         //tabLayout.addTab(tabLayout.newTab().setText("About Dept"));
-        tabLayout.addTab(tabLayout.newTab().setText("How to reach"));
+        tabLayout.addTab(tabLayout.newTab().setText("About PCCOE"));
 
         final ViewPager viewPager = (ViewPager)findViewById(R.id.pager);
-        final PagerAdapter adapter = new TabbedPageAdapterForMap(this,getSupportFragmentManager(),tabLayout.getTabCount());
+        final PagerAdapter adapter = new TabbedPageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -92,9 +98,7 @@ public class ActivityReachPCCOE extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab){
                 viewPager.setCurrentItem(tab.getPosition());
-                if(tab.getPosition()==1)
-                    Toast.makeText(ActivityReachPCCOE.this,"You are offline!",Toast.LENGTH_SHORT).show();
-
+                int position = tab.getPosition();
             }
 
             @Override
@@ -107,16 +111,15 @@ public class ActivityReachPCCOE extends AppCompatActivity {
 
             }
         });
-    }
+        }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(ActivityReachPCCOE.this,MainActivity.class);
-        intent.putExtra("key",1);
+        Intent intent = new Intent(AboutTabbed.this,MainActivity.class);
         startActivity(intent);
         finish();
     }
-}
+    }
 
 
