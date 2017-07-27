@@ -64,7 +64,7 @@ public class AboutTabbed extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(AboutTabbed.this,Guidelines1.class);
+                    intent = new Intent(AboutTabbed.this,GuidelinePresenter.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);

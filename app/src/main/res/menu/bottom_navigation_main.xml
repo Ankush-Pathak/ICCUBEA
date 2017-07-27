@@ -5,7 +5,7 @@
     <item
         android:id="@+id/navigation_button_TrackVenue"
         android:icon="@drawable/ic_track_venue"
-        android:title="Track"
+        android:title="Track paper"
 
     />
     <item
@@ -16,12 +16,12 @@
     <item
         android:id="@+id/navigation_button_Location"
         android:icon="@drawable/ic_check_in"
-        android:title="Check In"
+        android:title="Locations"
         />
     <item
         android:id="@+id/navigation_button_Instruction"
         android:icon="@drawable/ic_instructions"
-        android:title="Instructions"
+        android:title="Guidelines"
         />
     <item
         android:id="@+id/navigation_button_About"

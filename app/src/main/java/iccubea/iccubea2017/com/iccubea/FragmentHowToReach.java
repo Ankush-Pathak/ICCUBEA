@@ -71,11 +71,7 @@ public class FragmentHowToReach extends Fragment {
 
             });
 
-        {
-            Intent intent = new Intent(getActivity(),map_zoom.class);
-            startActivity(intent);
 
-        }
 
         return view;
     }

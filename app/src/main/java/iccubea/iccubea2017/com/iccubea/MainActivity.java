@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(MainActivity.this,Guidelines1.class);
+                    intent = new Intent(MainActivity.this,GuidelinePresenter.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);

@@ -83,7 +83,7 @@ public class CmtLogin extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(CmtLogin.this,Guidelines1.class);
+                    intent = new Intent(CmtLogin.this,GuidelinePresenter.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
@@ -170,16 +170,7 @@ public class CmtLogin extends AppCompatActivity {
         } else {
 
             Toast.makeText(CmtLogin.this, "No Active Internet Connection.", Toast.LENGTH_LONG).show();
-            handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(CmtLogin.this,MainActivity.class);
-                    intent.putExtra("key",1);
-                    startActivity(intent);
-                    finish();
-                }
-            }, 1500);
+
 
         }
 

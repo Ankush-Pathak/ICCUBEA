@@ -1,6 +1,8 @@
 package iccubea.iccubea2017.com.iccubea;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -60,7 +62,7 @@ public class ActivityReachPCCOE extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(ActivityReachPCCOE.this,Guidelines1.class);
+                    intent = new Intent(ActivityReachPCCOE.this,GuidelinePresenter.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
@@ -92,7 +94,8 @@ public class ActivityReachPCCOE extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab){
                 viewPager.setCurrentItem(tab.getPosition());
-                if(tab.getPosition()==1)
+                ConnectivityManager check = (ConnectivityManager) ActivityReachPCCOE.this.getSystemService(Context.CONNECTIVITY_SERVICE);
+                if(tab.getPosition()==1 && check.getActiveNetworkInfo() == null)
                     Toast.makeText(ActivityReachPCCOE.this,"You are offline!",Toast.LENGTH_SHORT).show();
 
             }
