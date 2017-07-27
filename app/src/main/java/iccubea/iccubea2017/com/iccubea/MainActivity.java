@@ -93,14 +93,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 else if(item.getItemId() == R.id.navigation_button_Location)
                 {
                     //CheckIn checkIn = new CheckIn();
-                    intent = new Intent(MainActivity.this,CheckIn.class);
+                    intent = new Intent(MainActivity.this,ActivityReachPCCOE.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(MainActivity.this,Guidelines1.class);
+                    intent = new Intent(MainActivity.this,GuidelinePresenter.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonProceeding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProceedingsActivity.class);
+                Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     circleProgressViewSec.setText(String.valueOf(periodSec.getSeconds()) + "sec");
                     circleProgressViewSec.setValueAnimated(periodSec.getSeconds());
                     if (periodSec.getSeconds() == 59) {
-                        circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
+                    //    circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
 
                        // circleProgressViewHrs.setValueAnimated(periodHrs.getHours());
                         circleProgressViewMin.setText(String.valueOf(periodMin.getMinutes()) + "min");

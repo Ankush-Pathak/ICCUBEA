@@ -82,7 +82,7 @@ public class Guidelines1 extends AppCompatActivity {
                 else if(item.getItemId() == R.id.navigation_button_Location)
                 {
                     //CheckIn checkIn = new CheckIn();
-                    intent = new Intent(Guidelines1.this,CheckIn.class);
+                    intent = new Intent(Guidelines1.this,ActivityReachPCCOE.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);

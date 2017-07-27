@@ -91,7 +91,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener,View
 
             case R.id.btnGuideline:
                 btnGuideline.setBackgroundResource(R.drawable.guidelines_animate);
-                intent = new Intent(getActivity(),GuildlinePresenter.class);
+                intent = new Intent(getActivity(),GuidelinePresenter.class);
                 startActivity(intent);
                 break;
 
