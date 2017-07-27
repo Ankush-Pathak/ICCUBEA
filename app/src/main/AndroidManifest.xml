@@ -49,13 +49,11 @@
             android:label="@string/title_activity_cmt_login"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".Guidelines1"
             android:label="@string/title_activity_guidelines"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
         <activity
             android:name=".map_zoom"
             android:label="@string/title_activity_second4"
@@ -93,8 +91,10 @@
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".AboutTabbed" />
-        <activity android:name=".ProceedingsActivity"
-            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name=".ProceedingsActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".GuildlinePresenter"></activity>
     </application>
 
 </manifest>
