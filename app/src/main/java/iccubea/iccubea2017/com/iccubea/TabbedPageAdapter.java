@@ -22,10 +22,10 @@ public class TabbedPageAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
-            case 0:
+            case 1:
                 AboutPCCOEFrag pccoeFrag = new AboutPCCOEFrag();
                 return pccoeFrag;
-            case 1:
+            case 0:
                 AboutICCUBEAFrag iccubeaFrag = new AboutICCUBEAFrag();
                 return iccubeaFrag;
             default:

@@ -1,3 +1,6 @@
+build/
+google-services.json
+.idea/
 google-services.json
 .idea/
 build/
@@ -5,5 +8,6 @@ build/
 projectFilesBackup/
 app/src/androidTest/
 app/src/debug/
+app/src/release
 app/src/release/
 app/src/test/

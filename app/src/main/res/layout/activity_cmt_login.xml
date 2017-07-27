@@ -5,12 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="iccubea.iccubea2017.com.iccubea.CmtLogin">
+    tools:context="iccubea.iccubea2017.com.iccubea.CmtLogin"
+    android:orientation="vertical">
+
 
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/webView"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:layout_weight="5">
+    </WebView>
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavView_Bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_main"
+        android:background="@drawable/white_gray_border"
+        android:layout_alignParentBottom="true"/>
+
 
 </LinearLayout>

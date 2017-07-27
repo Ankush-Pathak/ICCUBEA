@@ -7,7 +7,14 @@
     tools:context="iccubea.iccubea2017.com.iccubea.MainActivity"
     android:orientation="vertical"
     android:id="@+id/relativeLayoutMain"
-    android:background="@drawable/ip5">
+    android:background="@color/colorBackground">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
     <Button
         android:id="@+id/buttonMainAcitivitProceeding"
@@ -24,9 +31,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
-        android:weightSum="10
-        ">
-
+        android:weightSum="10"/>
         <at.grabner.circleprogress.CircleProgressView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -35,6 +40,30 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_weight="1.7"/>
+<!--
+        <at.grabner.circleprogress.CircleProgressView
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_marginTop="30dp"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:id="@+id/circularProgressMin"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1.7"/>
+
+        <at.grabner.circleprogress.CircleProgressView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/circularProgressHrs"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1.7"/>
+
+=======
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -61,6 +90,7 @@
                     android:layout_marginLeft="10dp" />
             </RelativeLayout>
         </LinearLayout>
+>>>>>>> a9dceb9e9013b629255aed8e3a6eddd838c77914
         <at.grabner.circleprogress.CircleProgressView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -70,21 +100,25 @@
             android:layout_centerHorizontal="true"
             android:layout_weight="1.7"/>
 
+<<<<<<< HEAD
+-->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Countdown for\ncPGCON 2016"
+            android:text="Countdown for\nICCUBEA 2016"
             android:id="@+id/textView2"
-            android:layout_below="@id/circularProgressDays"
+            android:layout_below="@id/circularProgressSec"
+
             android:gravity="center_horizontal"
             android:foregroundGravity="center_horizontal"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:textSize="35dp"
-            android:layout_weight="3"/>
+            android:textSize="35sp"
+            />
 
-    </LinearLayout>
+    </RelativeLayout>
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -92,16 +126,16 @@
         android:id="@+id/mainactivity_fragment">
 
     </FrameLayout>
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavView_Bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_main"
+        app:elevation="100dp"
+        android:background="@drawable/button"
+        android:layout_alignParentBottom="true">
 
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    </android.support.design.widget.BottomNavigationView>
 
-        android:id="@+id/btnMoveUp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/menu"
-        android:layout_gravity="center_horizontal|bottom"
-        />
 
 </RelativeLayout>
