@@ -1,0 +1,9 @@
+build/
+google-services.json
+.idea/
+.gradle/
+projectFilesBackup/
+app/src/androidTest/
+app/src/debug/
+app/src/release
+app/src/test/
