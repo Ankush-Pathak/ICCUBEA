@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "iccubea.iccubea2017.com.iccubea"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.github.jakob-grabner:Circle-Progress-View:v1.2.6'
+    compile 'joda-time:joda-time:2.3'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.google.android.gms:play-services-maps:11.0.2'
+    compile 'com.andkulikov:transitionseverywhere:1.6.1'
+    compile 'com.android.support:support-v4:25.2.0'
+    compile 'com.google.android.gms:play-services:11.0.2'
+    compile 'com.readystatesoftware.sqliteasset:sqliteassethelper:+'
+    compile 'com.commit451:PhotoView:1.2.5'
+    compile 'com.google.firebase:firebase-database:10.0.1'
+    compile 'com.google.firebase:firebase-core:10.0.1'
+    testCompile 'junit:junit:4.12'
+}
+
+
+
+apply plugin: 'com.google.gms.google-services'
