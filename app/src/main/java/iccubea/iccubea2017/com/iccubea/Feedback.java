@@ -1,4 +1,4 @@
-package iccubea.iccubea2017.com.iccubea;package
+package iccubea.iccubea2017.com.iccubea;
 
 import java.io.Serializable;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 public class Feedback implements Serializable
 {
-    int ratingOverall, ratingFood, ratingAccomodation, ratingVolunteer,
+    float ratingOverall, ratingFood, ratingAccomodation, ratingVolunteer,
             ratingOrganisation, ratingRecommend, ratingApp;
 
     String textExtra;
@@ -20,9 +20,9 @@ public class Feedback implements Serializable
         textExtra = "NA";
     }
 
-    public Feedback(int ratingOverall, int ratingFood, int ratingAccomodation,
-                    int ratingApp, int ratingOrganisation, int ratingVolunteer,
-                    int ratingRecommend, String textExtra)
+    public Feedback(float ratingOverall, float ratingFood, float ratingAccomodation,
+                    float ratingApp, float ratingOrganisation, float ratingVolunteer,
+                    float ratingRecommend, String textExtra)
     {
         this.textExtra = textExtra;
         this.ratingAccomodation = ratingAccomodation;
@@ -34,59 +34,59 @@ public class Feedback implements Serializable
         this.ratingVolunteer = ratingVolunteer;
     }
 
-    public int getRatingOverall() {
+    public float getRatingOverall() {
         return ratingOverall;
     }
 
-    public void setRatingOverall(int ratingOverall) {
+    public void setRatingOverall(float ratingOverall) {
         this.ratingOverall = ratingOverall;
     }
 
-    public int getRatingAccomodation() {
+    public float getRatingAccomodation() {
         return ratingAccomodation;
     }
 
-    public void setRatingAccomodation(int ratingAccomodation) {
+    public void setRatingAccomodation(float ratingAccomodation) {
         this.ratingAccomodation = ratingAccomodation;
     }
 
-    public int getRatingFood() {
+    public float getRatingFood() {
         return ratingFood;
     }
 
-    public void setRatingFood(int ratingFood) {
+    public void setRatingFood(float ratingFood) {
         this.ratingFood = ratingFood;
     }
 
-    public int getRatingVolunteer() {
+    public float getRatingVolunteer() {
         return ratingVolunteer;
     }
 
-    public void setRatingVolunteer(int ratingVolunteer) {
+    public void setRatingVolunteer(float ratingVolunteer) {
         this.ratingVolunteer = ratingVolunteer;
     }
 
-    public int getRatingOrganisation() {
+    public float getRatingOrganisation() {
         return ratingOrganisation;
     }
 
-    public void setRatingOrganisation(int ratingOrganisation) {
+    public void setRatingOrganisation(float ratingOrganisation) {
         this.ratingOrganisation = ratingOrganisation;
     }
 
-    public int getRatingRecommend() {
+    public float getRatingRecommend() {
         return ratingRecommend;
     }
 
-    public void setRatingRecommend(int ratingRecommend) {
+    public void setRatingRecommend(float ratingRecommend) {
         this.ratingRecommend = ratingRecommend;
     }
 
-    public int getRatingApp() {
+    public float getRatingApp() {
         return ratingApp;
     }
 
-    public void setRatingApp(int ratingApp) {
+    public void setRatingApp(float ratingApp) {
         this.ratingApp = ratingApp;
     }
 

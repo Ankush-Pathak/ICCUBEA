@@ -13,41 +13,43 @@
     android:orientation="vertical">
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/editTextSearch"
-        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignEnd="@+id/listView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:hint="Enter paper id or domain"
+        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/listView"
-        android:layout_alignEnd="@+id/listView"
-        android:inputType="textPersonName"/>
+        android:layout_weight="2"
+        android:hint="Enter paper id or domain"
+        android:inputType="textPersonName" />
 
     <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/editTextSearch" />
+        android:layout_below="@+id/editTextSearch"
+        android:layout_weight="0.5" />
 
     <TextView
+        android:id="@+id/textViewHelper"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/textViewHelper"
-        android:gravity="center_horizontal"
         android:layout_alignBottom="@+id/listView"
         android:layout_centerHorizontal="true"
+        android:layout_weight="0"
+        android:gravity="center_horizontal"
+        android:text="New Text"
         android:textColor="#00000000" />
 
     <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        />
+        android:layout_weight="2.1" />
 
 </LinearLayout>

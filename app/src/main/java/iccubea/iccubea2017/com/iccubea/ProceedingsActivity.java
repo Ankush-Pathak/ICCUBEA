@@ -1,0 +1,181 @@
+package iccubea.iccubea2017.com.iccubea;
+
+import android.app.Dialog;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.SearchView;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ListView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import static iccubea.iccubea2017.com.iccubea.R.id.editTextSearch;
+
+public class ProceedingsActivity extends AppCompatActivity {
+    SearchView searchViewProceeding;
+    ListView listViewProceeding;
+    ImageButton imageButtonFilterByDomain;
+    Dialog dialogSelectDomain;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    ArrayList<Proceeding> proceedingArrayList, proceedingArrayListFull;
+    ArrayAdapter arrayAdapter;
+    String domainSelected = "";
+    String[] domains = { "Show all tracks",
+
+            "Image Processing and Computer Vision",
+            "Computer and Communication Security",
+            "Databases and Big Data",
+            "HPC, Cloud and Social Network Analysis",
+            "IOT and Computer Networks",
+            "Signal Processing and Applications",
+            "Digital Communication",
+            "VLSI and Embedded Systems",
+            "Control and Automation",
+            "Cognitive and Intelligent Systems"};
+    ArrayList displayResultList;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_proceedings);
+        initialise();
+    }
+    void initialise()
+    {
+        searchViewProceeding = (SearchView)findViewById(R.id.searchViewProceedingSrch);
+        searchViewProceeding.setEnabled(false);
+        listViewProceeding = (ListView)findViewById(R.id.listViewProceeding);
+        imageButtonFilterByDomain = (ImageButton)findViewById(R.id.imageButtonProceedingFilter);
+        proceedingArrayList = new ArrayList<>();
+        proceedingArrayListFull = new ArrayList<>();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("Proceedings");
+
+
+        searchViewProceeding.setIconified(true);
+        searchViewProceeding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchViewProceeding.setIconified(!searchViewProceeding.isIconified());
+            }
+        });
+        searchViewProceeding.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchViewProceeding.setQueryHint("Enter paper title");
+            }
+        });
+        searchViewProceeding.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                searchListView(s);
+                return false;
+            }
+        });
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds: dataSnapshot.getChildren()) {
+                    proceedingArrayListFull.add(ds.getValue(Proceeding.class));
+                }
+                proceedingArrayList = new ArrayList<Proceeding>(proceedingArrayListFull);
+                searchListView("");
+                searchViewProceeding.setEnabled(true);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        imageButtonFilterByDomain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDomainDialog();
+            }
+        });
+    }
+    void searchListView(String s)
+    {
+        if (s.length() < 2)
+            s = "";
+        displayResultList = new ArrayList<>();
+        proceedingArrayList = new ArrayList<>();
+        for(Proceeding p : proceedingArrayListFull)
+        {
+            if(p.getPaperTitle().toLowerCase().contains(s.toLowerCase()) && p.getDomain().toLowerCase().contains(domainSelected.toLowerCase()))
+            {
+                proceedingArrayList.add(p);
+                displayResultList.add("Title : " + p.getPaperTitle());//+ "\nTrack : " + p.getDomain());
+            }
+        }
+        setAdapter();
+    }
+
+    void setDomain(int domainIndex)
+    {
+        domainSelected = domains[domainIndex];
+        if(domainIndex == 0)
+            domainSelected = "";
+        searchListView("");
+    }
+
+    void setAdapter()
+    {
+        arrayAdapter = new ArrayAdapter(ProceedingsActivity.this, android.R.layout.simple_list_item_1,displayResultList);
+        listViewProceeding.setAdapter(arrayAdapter);
+        arrayAdapter.notifyDataSetChanged();
+    }
+
+    void showDomainDialog()
+    {
+        ListView listView;
+        ArrayList<String> arrayList = new ArrayList<String>();
+        for(String s:domains)
+        {
+            arrayList.add(s);
+        }
+
+        ArrayAdapter arrayAdapter;
+        dialogSelectDomain = new Dialog(ProceedingsActivity.this, android.R.style.Theme_DeviceDefault_Light_Dialog);
+        dialogSelectDomain.setContentView(R.layout.dialog_domain_select);
+        dialogSelectDomain.setTitle("Filter by track :");
+
+        listView = (ListView)dialogSelectDomain.findViewById(R.id.listViewDialogSelectDomain);
+        arrayAdapter = new ArrayAdapter(ProceedingsActivity.this,android.R.layout.simple_list_item_1,arrayList);
+        listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                setDomain(position);
+                dialogSelectDomain.dismiss();
+            }
+        });
+        dialogSelectDomain.show();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ProceedingsActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}

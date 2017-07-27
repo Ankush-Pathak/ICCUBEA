@@ -6,22 +6,23 @@ package iccubea.iccubea2017.com.iccubea;
 
 public class Paper {
     int pid;
-    String author, date, location, track, time;
+    String author, date, location, track, time, title;
 
 
     public Paper()
     {
         pid = -1;
-        author = date = location = track = "NA";
+        title = author = date = location = track = "NA";
     }
 
-    public Paper(int pid, String author, String date, String location, String track, String time) {
+    public Paper(int pid, String author, String date, String location, String track, String time, String title) {
         this.pid = pid;
         this.author = author;
         this.date = date;
         this.location = location;
         this.track = track;
         this.time = time;
+        this.title = title;
     }
 
     public int getPid() {
@@ -70,5 +71,13 @@ public class Paper {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

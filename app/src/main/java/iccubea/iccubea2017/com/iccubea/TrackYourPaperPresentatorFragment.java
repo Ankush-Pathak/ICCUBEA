@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,13 +40,13 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class TrackYourPaperPresentatorFragment extends Fragment implements AdapterView.OnItemSelectedListener{
-    ArrayList<String> resultsIds,resultsDom,resultsLoc,resultsDat,resultsTime,resultsName;
+    ArrayList<String> resultsIds,resultsDom,resultsLoc,resultsDat,resultsTime,resultsName,resultsTitle;
     SQLiteDatabase sqLiteDatabase;
     Spinner spinner;
     Cursor databasePaper;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    EditText editTextSearch;
+    SearchView editTextSearch;
     ListView listView;
     ArrayList<String> displayResultList;
     ArrayAdapter<String> displayResult;
@@ -68,26 +69,22 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_track_your_paper_presentator, container, false);
         initialise();
-        editTextSearch.addTextChangedListener(new TextWatcher() {
+        editTextSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
 
             @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                if (charSequence.length() > 1)
+            public boolean onQueryTextChange(String newText) {
+                if (newText.length() > 1)
                     search();
                 else
                     listView.setAdapter(null);
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                //search();
+                return false;
             }
         });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -103,11 +100,26 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
     public void initialise()
     {
 
-        sqLiteDatabase = ((TrackYourPaperTabbed)getActivity()).sqLiteDatabase;
-        editTextSearch = (EditText)view.findViewById(R.id.editTextSearch);
+        //sqLiteDatabase = ((TrackYourPaperTabbed)getActivity()).sqLiteDatabase;
+        editTextSearch = (SearchView)view.findViewById(R.id.editTextSearch);
+        editTextSearch.setIconified(true);
+        editTextSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editTextSearch.setIconified(!editTextSearch.isIconified());
+            }
+        });
+        editTextSearch.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editTextSearch.setQueryHint("Enter author name or paper ID");
+            }
+        });
         int j = 0;
         paper = new ArrayList<>();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Presenters");
+        databaseReference.keepSynced(true);
         editTextSearch.setEnabled(false);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -134,6 +146,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         resultsDat = new ArrayList();
         resultsTime = new ArrayList();
         resultsName = new ArrayList();
+        resultsTitle = new ArrayList<>();
 
         //For Contact
         spinner=(Spinner)view.findViewById(R.id.spinner);
@@ -187,7 +200,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         displayResultList = new ArrayList<>();
         String idOrDomain;
 
-        idOrDomain = editTextSearch.getText().toString();
+        idOrDomain = editTextSearch.getQuery().toString();
         if(idOrDomain == null)
             idOrDomain = "445sdsd";
 
@@ -213,13 +226,15 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         displayResultList = new ArrayList<>();
         for(Paper p : paper)
         {
-            if(String.valueOf(p.getPid()).contains(idOrDomain) || p.getAuthor().contains(idOrDomain))
+            if(String.valueOf(p.getPid()).contains(idOrDomain.toLowerCase()) || p.getAuthor().toLowerCase().contains(idOrDomain.toLowerCase()))
             {
                 resultsIds.add(String.valueOf(p.getPid()));
                 resultsDom.add(p.getTrack());
                 resultsLoc.add(p.getLocation());
                 resultsDat.add(p.getDate());
                 resultsTime.add(p.getTime());
+                resultsName.add(p.getAuthor());
+                resultsTitle.add(p.getTitle());
                 displayResultList.add("Name : " + p.getAuthor() + "\nPaper Id : " + String.valueOf(p.getPid()) + "\nTrack : " + p.getTrack());
             }
         }
@@ -243,11 +258,11 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
     }*/
     public void displayDialog(int i)
     {
-        final Dialog dialog = new Dialog(getActivity(),android.R.style.Theme_DeviceDefault_Dialog);
+        final Dialog dialog = new Dialog(getActivity(),android.R.style.Theme_DeviceDefault_Light_Dialog);
         dialog.setContentView(R.layout.customdialog);
 
         dialog.setTitle("Details : ");
-        TextView textViewId,textViewDom,textViewDate,textViewVen,textViewTime,textViewName;
+        TextView textViewId,textViewDom,textViewDate,textViewVen,textViewTime,textViewName,textViewTitle;
         Button btnOk;
         textViewDate = (TextView)dialog.findViewById(R.id.textViewDate);
         textViewDom = (TextView)dialog.findViewById(R.id.textViewDom);
@@ -255,12 +270,14 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         textViewVen = (TextView)dialog.findViewById(R.id.textViewVenue);
         textViewTime = (TextView)dialog.findViewById(R.id.textViewTime);
         textViewName = (TextView)dialog.findViewById(R.id.textViewAuthorName);
+        textViewTitle = (TextView)dialog.findViewById(R.id.textViewPaperTitle);
         textViewDate.append(" " + resultsDat.get(i));
         textViewDom.append(" " + resultsDom.get(i));
         textViewTime.append(" " + resultsTime.get(i));
         textViewVen.append(" " + resultsLoc.get(i));
         textViewId.append(" " + resultsIds.get(i));
         textViewName.append(" " + resultsName.get(i));
+        textViewTitle.append(" " + resultsTitle.get(i));
         btnOk = (Button)dialog.findViewById(R.id.btnOkDialog);
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override

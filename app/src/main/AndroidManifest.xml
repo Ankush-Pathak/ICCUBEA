@@ -49,41 +49,21 @@
             android:label="@string/title_activity_cmt_login"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".About"
-            android:label="@string/title_activity_about"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".Guidelines1"
             android:label="@string/title_activity_guidelines"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SecondActivity"
-            android:label="@string/title_activity_second"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SecondActivity2"
-            android:label="@string/title_activity_second2"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SecondActivity3"
-            android:label="@string/title_activity_second3"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".SecondActivity4"
-            android:label="@string/title_activity_second4"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+
         <activity
             android:name=".map_zoom"
             android:label="@string/title_activity_second4"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
+
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -106,6 +86,12 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
+            android:name=".FeedbackActivity"
+            android:screenOrientation="portrait" />
+
+
+
+        <activity
             android:name=".TrackYourPaper"
             android:screenOrientation="portrait" />
         <activity android:name=".CheckIn" />
@@ -114,8 +100,10 @@
             android:label="@string/title_activity_track_your_paper_tabbed"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
-            android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".FeedbackActivity"></activity>
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".AboutTabbed" />
+        <activity android:name=".ProceedingsActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>

@@ -49,7 +49,7 @@ public class TrackYourPaperAttendeeFragment extends Fragment {
         building = new String[50];
         editText = (EditText)view.findViewById(R.id.editTextAttendee);
         listView = (ListView)view.findViewById(R.id.listViewAttendee);
-        sqLiteDatabase = ((TrackYourPaperTabbed)(getActivity())).sqLiteDatabase;
+       // sqLiteDatabase = ((TrackYourPaperTabbed)(getActivity())).sqLiteDatabase;
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

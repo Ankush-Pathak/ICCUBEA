@@ -20,53 +20,39 @@
             android:layout_height="match_parent"
             android:weightSum="1">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ABOUT cPGCON"
-                android:textSize="40sp"
-                android:id="@+id/abt_cpgcon_title"
-                android:gravity="center"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_above="@+id/imageView"
-                android:layout_marginTop="20dp"
-                android:padding="0dp"
-                android:textColor="#000000" />
-
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adjustViewBounds="false"
                 android:id="@+id/imageView"
-                android:maxHeight="40dp"
-                android:maxWidth="36dp"
-
+                android:layout_width="305dp"
+                android:layout_height="370dp"
+                android:layout_alignEnd="@+id/abt_pccoe_title"
                 android:layout_alignParentBottom="true"
                 android:layout_alignRight="@+id/abt_pccoe_title"
-                android:layout_alignEnd="@+id/abt_pccoe_title"
-                android:layout_marginTop="-100dp"
+
+                android:layout_gravity="center"
                 android:layout_marginBottom="0dp"
+                android:layout_marginTop="-100dp"
+                android:adjustViewBounds="false"
+                android:maxHeight="40dp"
+                android:maxWidth="36dp"
                 android:padding="0dp"
                 android:paddingEnd="0dp"
                 android:paddingStart="0dp"
-                android:src="@drawable/about_cpgcon_logo"
-                android:layout_gravity="center" />
+                android:src="@drawable/iccubea_logo" />
 
             <TextView
+                android:id="@+id/textViewInfoIccubea"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/infoCpgcon"
-                android:paddingBottom="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="-80dp"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/infoICCUBEA"
                 android:textColor="#000000"
-                android:textSize="20sp"
-                android:gravity="center" />
+                android:textSize="20sp" />
 
 
         </LinearLayout>

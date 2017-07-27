@@ -10,11 +10,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FFFFFF"
         android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -24,29 +26,32 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/TextViewFeedbackTitle"
+                    android:id="@+id/textViewFeedback"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.08"
-                    android:gravity="center_vertical|center_horizontal"
-                    android:paddingBottom="20dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="30dp"
-                    tools:text="Feedback " />
+                    android:layout_weight="0.11"
+                    android:background="@drawable/title_feedback_border"
+                    android:text="Feedback"
+                    android:gravity="center_horizontal"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp" />
 
                 <TextView
                     android:id="@+id/textViewFeedbackQ1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.11"
+                    android:paddingTop="10dp"
                     android:text="Overall, how would you rate this event?"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <RatingBar
                     android:id="@+id/ratingBarFeedbackOverall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     android:layout_weight="0.03"
                     android:numStars="5"
                     android:paddingBottom="10dp" />
@@ -59,7 +64,7 @@
                     android:paddingBottom="15dp"
                     android:text="Please rate the following aspects of the events : "
                     android:textColor="@android:color/black"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
 
                 <TextView
                     android:id="@+id/textViewfeedbackFood"
@@ -68,12 +73,14 @@
                     android:layout_weight="0.08"
                     android:text="Food and Refreshments"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <RatingBar
                     android:id="@+id/ratingBarFeedbackFood"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     android:layout_weight="0.08"
                     android:numStars="5"
                     android:paddingBottom="10dp" />
@@ -83,14 +90,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
+
                     android:text="Accomodation (If applicable)"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp" />
 
                 <RatingBar
                     android:id="@+id/ratingBarFeedbackAccomodation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     android:layout_weight="0.08"
                     android:numStars="5"
                     android:paddingBottom="10dp" />
@@ -101,13 +111,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
                     android:text="Volunteer Assistance"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp" />
 
                 <RatingBar
                     android:id="@+id/ratingBarFeedbackVolunteer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     android:layout_weight="0.08"
                     android:numStars="5"
                     android:paddingBottom="10dp" />
@@ -118,13 +130,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
                     android:text="How likely is it that you would recommend the event to a friend or colleague?"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp" />
 
                 <RatingBar
                     android:id="@+id/ratingBarFeedbackRecommend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     android:layout_weight="0.08"
                     android:numStars="5"
                     android:paddingBottom="10dp"
@@ -136,13 +150,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
                     android:text="How organised was the event?"
-                    android:textSize="18sp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp" />
 
                 <RatingBar
                     android:id="@+id/ratingBarFeedbackOrganisation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     android:layout_weight="0.08"
                     android:paddingBottom="0dp" />
 
@@ -153,11 +169,13 @@
                     android:layout_weight="0.08"
                     android:text="Overall rating of the app? (Rate us at Play Store too!)"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <RatingBar
                     android:id="@+id/ratingBarFeedbackApp"
                     android:layout_width="wrap_content"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
                     android:paddingBottom="10dp" />
@@ -167,16 +185,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
-                    android:paddingBottom="10dp"
+                    android:paddingBottom="8dp"
                     android:text=" Is there anything else you’d like to share about the event?"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="17sp" />
 
                 <EditText
                     android:id="@+id/editTextFeedbackExtra"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/edittext_border"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_marginBottom="@dimen/activity_vertical_margin"
                     android:layout_weight="0.08"
+                    android:gravity="top"
                     android:ems="10"
                     android:inputType="textMultiLine"
                     android:textColor="@android:color/black" />
@@ -187,9 +209,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="0.08"
+                    android:textColor="@color/cast_expanded_controller_progress_text_color"
                     android:gravity="center"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
+                    android:background="@android:color/black"
                     android:text="Submit" />
             </LinearLayout>
         </LinearLayout>

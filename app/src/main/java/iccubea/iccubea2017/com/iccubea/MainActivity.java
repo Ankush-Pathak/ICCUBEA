@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int flag=0,frag_flag = 1;
     BlankFragment fragment;
     FragmentManager fragmentManager;
-    Button btnMoveUp;
+    Button btnMoveUp, buttonProceeding;
     int height;
     double offset;
     TextView textView;
@@ -89,6 +89,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         contourSize = 3;
         textView = (TextView) findViewById(R.id.textView2);
         textView.setTypeface(typeface);
+        buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
+
+        buttonProceeding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }

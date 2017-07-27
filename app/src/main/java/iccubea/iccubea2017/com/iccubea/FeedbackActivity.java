@@ -1,12 +1,15 @@
 package iccubea.iccubea2017.com.iccubea;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -52,18 +55,26 @@ public class FeedbackActivity extends AppCompatActivity {
         ratingBarFeedbackVolunteer = (RatingBar) findViewById(R.id.ratingBarFeedbackVolunteer);
 
 
+        feedback = new Feedback();
         editTextFeedbackExtra = (EditText) findViewById(R.id.editTextFeedbackExtra);
 
         buttonFeedbackSubmit = (Button) findViewById(R.id.buttonFeedbackSubmit);
 
-        feedback.setRatingAccomodation(ratingBarFeedbackAccomodation.getNumStars());
-        feedback.setRatingApp(ratingBarFeedbackApp.getNumStars());
-        feedback.setRatingFood(ratingBarFeedbackFood.getNumStars());
-        feedback.setRatingOrganisation(ratingBarFeedbackOrganisation.getNumStars());
-        feedback.setRatingOverall(ratingBarFeedbackOverall.getNumStars());
-        feedback.setRatingRecommend(ratingBarFeedbackRecommend.getNumStars());
-        feedback.setRatingVolunteer(ratingBarFeedbackVolunteer.getNumStars());
-        feedback.setTextExtra(editTextFeedbackExtra.getText().toString());
+
+
+
+        SharedPreferences sharedPre = FeedbackActivity.this.getSharedPreferences("sharedPref",Context.MODE_PRIVATE);
+        boolean submittedFeedback = sharedPre.getBoolean("hasSubmittedFeedback",false);
+
+        if(submittedFeedback)
+        {
+            Toast.makeText(FeedbackActivity.this,"You have already submitted the feedback.",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(FeedbackActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+
+
+        }
 
 
        /* ratingFeedbackApp = ratingBarFeedbackApp.getNumStars();
@@ -75,12 +86,35 @@ public class FeedbackActivity extends AppCompatActivity {
         ratingFeedbackVolunteer = ratingBarFeedbackVolunteer.getNumStars();
 
            textFeedbackExtra = editTextFeedbackExtra.getText().toString(); */
-        databaseReference.push().setValue(feedback);
+
         buttonFeedbackSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
+
+
+                feedback.setRatingAccomodation(ratingBarFeedbackAccomodation.getRating());
+                feedback.setRatingApp(ratingBarFeedbackApp.getRating());
+                feedback.setRatingFood(ratingBarFeedbackFood.getRating());
+                feedback.setRatingOrganisation(ratingBarFeedbackOrganisation.getRating());
+                feedback.setRatingOverall(ratingBarFeedbackOverall.getRating());
+                feedback.setRatingRecommend(ratingBarFeedbackRecommend.getRating());
+                feedback.setRatingVolunteer(ratingBarFeedbackVolunteer.getRating());
+                feedback.setTextExtra(editTextFeedbackExtra.getText().toString());
+
+
+
+
                     databaseReference.push().setValue(feedback);
+
+
+
+                hasSubmittedFeedback = true;
+
+                SharedPreferences sharedPreferences = FeedbackActivity.this.getSharedPreferences("sharedPref", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("hasSubmittedFeedback",hasSubmittedFeedback);
+                editor.commit();
             }
         });
 
