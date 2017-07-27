@@ -33,8 +33,15 @@ public class FragmentHowToReach extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         SupportMapFragment mapFragment;
+        View view = null;
 
-        View view = inflater.inflate(R.layout.fragment_how_to_reach, container, false);
+        try {
+            view = inflater.inflate(R.layout.fragment_how_to_reach, container, false);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
 
 

@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
         MenuItem menuItem = menu.getItem(0);
-        menuItem.setChecked(true);
+        menuItem.setChecked(false);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
 
@@ -250,9 +250,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //    circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
 
                        // circleProgressViewHrs.setValueAnimated(periodHrs.getHours());
-                        circleProgressViewMin.setText(String.valueOf(periodMin.getMinutes()) + "min");
+                        //circleProgressViewMin.setText(String.valueOf(periodMin.getMinutes()) + "min");
                         //circleProgressViewMin.setValueAnimated(periodMin.getMinutes());
-                        circleProgressViewDays.setText(String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + "days");
+                        //circleProgressViewDays.setText(String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + "days");
                        // circleProgressViewDays.setValueAnimated(Days.daysBetween(dateTimeNow, dateTime).getDays());
                     }
                 }

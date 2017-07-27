@@ -27,7 +27,7 @@ public class ActivityReachPCCOE extends AppCompatActivity {
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
         Menu menu = bottomNavigationView.getMenu();
-        MenuItem menuItem = menu.getItem(4);
+        MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
@@ -116,7 +116,6 @@ public class ActivityReachPCCOE extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(ActivityReachPCCOE.this,MainActivity.class);
-        intent.putExtra("key",1);
         startActivity(intent);
         finish();
     }

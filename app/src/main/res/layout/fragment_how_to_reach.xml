@@ -2,10 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="akshay.reach_pccoe.FragmentHowToReach">
+    tools:context="iccubea.iccubea2017.com.iccubea.FragmentHowToReach">
 
     <fragment
-        android:tag="mapFragment"
         android:id="@+id/mapFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"

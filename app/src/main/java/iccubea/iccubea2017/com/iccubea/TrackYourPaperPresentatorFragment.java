@@ -12,7 +12,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -106,6 +109,10 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         editTextSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(editTextSearch.isEnabled() == false)
+                {
+                    Toast.makeText(getActivity(), "Retriving data, ensure data connection.",Toast.LENGTH_LONG).show();
+                }
                 editTextSearch.setIconified(!editTextSearch.isIconified());
             }
         });
@@ -152,21 +159,16 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         spinner=(Spinner)view.findViewById(R.id.spinner);
         categories=new ArrayList<String>();
         categories.add("Contact respective Incharges");
-        categories.add("Soft Computing and Artificial Intelligence");
-        categories.add("Data mining and information retrieval");
-        categories.add("Big data analytics");
-        categories.add("Operating system and compilers");
-        categories.add("Image processing /Signal processing");
-        categories.add("Computer graphics and visualization");
-        categories.add("Networking and cloud computing");
-        categories.add("Mobile and wireless communication/Networking");
-        categories.add("Parallel Computing");
-        categories.add("Information security / Cyber security");
-        categories.add("Video/virtual reality");
-        categories.add("Software Engineering and Architecture");
-        categories.add("Distributed computing");
-        categories.add("Others");
-        categories.add("Research Scholar(Ph.D)");
+        categories.add( "Image Processing and Computer Vision");
+        categories.add("Computer and Communication Security");
+        categories.add("Databases and Big Data");
+        categories.add("HPC, Cloud and Social Network Analysis");
+        categories.add("IOT and Computer Networks");
+        categories.add("Signal Processing and Applications");
+        categories.add("Digital Communication");
+        categories.add("VLSI and Embedded Systems");
+        categories.add("Control and Automation");
+        categories.add("Cognitive and Intelligent Systems");
         dataAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,categories);
         dataAdapter.setDropDownViewResource(R.layout.dropdown_newline);
         spinner.setAdapter(dataAdapter);
@@ -235,7 +237,14 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 resultsTime.add(p.getTime());
                 resultsName.add(p.getAuthor());
                 resultsTitle.add(p.getTitle());
-                displayResultList.add("Name : " + p.getAuthor() + "\nPaper Id : " + String.valueOf(p.getPid()) + "\nTrack : " + p.getTrack());
+                SpannableString name, paperId, track;
+                name = new SpannableString("Name");
+                name.setSpan(new StyleSpan(Typeface.BOLD),0,"Name".length(),0);
+                paperId = new SpannableString("PaperID");
+                paperId.setSpan(new StyleSpan(Typeface.BOLD),0,"PaperID".length(),0);
+                track = new SpannableString("Track");
+                track.setSpan(new StyleSpan(Typeface.BOLD),0,"Track".length(),0);
+                displayResultList.add(name + " : " + p.getAuthor().substring(0,15) + "\n" + paperId + " : " + String.valueOf(p.getPid()) + "\n" + track + " : " + p.getTrack());
             }
         }
         displayFinalList();
@@ -335,35 +344,35 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
 
             case 1:
-                name="Prof Sonali Tidke";
-                phnum="tel:7798635345";
+                name="Dr. Pravin Futane";
+                phnum="tel:9823033342";
                 displayDialog1(item,phnum,name);
                 break;
 
             case 2:
-                name="Dr.Anuradha Thakre";
-                phnum="tel:9226094966";
+                name="Prof R S Kharat";
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 4:
-                name="Prof Sonal Gore";
-                phnum="tel:9226094968";
+                name="Dr. K Rajeswari";
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 3:
-                name="Prof Sushma Vispute";
-                phnum="tel:9226094972";
+                name="Prof Sonal Gore";
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 5:
-                name="Prof Harshada Mhaske";;
-                phnum="tel:9226094982";
+                name="Prof S Sambhare";;
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
