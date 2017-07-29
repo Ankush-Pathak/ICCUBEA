@@ -16,13 +16,20 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonMainAcitivitProceeding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        <Button
+            android:id="@+id/buttonMainAcitivitProceeding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proceedings" />
 
-    <LinearLayout
+        <Button
+            android:id="@+id/buttonMainAcitivtyFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonMainAcitivitProceeding"
+            android:text="Feedback" />
+
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
@@ -139,3 +146,4 @@
 
 
 </RelativeLayout>
+    <!-- app:elevation="100dp"-->

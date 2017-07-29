@@ -40,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            app:elevation="1dp"
             android:background="@drawable/white_gray_border"
             app:menu="@menu/bottom_navigation_main" />
     </RelativeLayout>

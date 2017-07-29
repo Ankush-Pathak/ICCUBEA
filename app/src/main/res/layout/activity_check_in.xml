@@ -66,6 +66,7 @@ tools:context="iccubea.iccubea2017.com.iccubea.CheckIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation_main"
+        app:elevation="1dp"
         android:background="@drawable/white_gray_border"
         android:layout_alignParentBottom="true"/>
 

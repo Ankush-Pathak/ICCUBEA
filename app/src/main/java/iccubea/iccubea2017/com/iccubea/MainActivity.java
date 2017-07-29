@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int flag=0,frag_flag = 1;
     BlankFragment fragment;
     FragmentManager fragmentManager;
-    Button btnMoveUp, buttonProceeding;
+    Button btnMoveUp, buttonProceeding,buttonFeedback;
     int height;
     double offset;
     TextView textView;
@@ -140,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         System.gc();
         fragment = new BlankFragment();
         fragmentManager = getSupportFragmentManager();
+
         typeface = Typeface.createFromAsset(getAssets(), "AGENCYR.TTF");
         height = this.getResources().getDisplayMetrics().heightPixels;
         offset = this.getResources().getDisplayMetrics().densityDpi;
@@ -162,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //textView = (TextView) findViewById(R.id.textView2);
         //textView.setTypeface(typeface);
         buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
+        buttonFeedback = (Button)findViewById(R.id.buttonMainAcitivtyFeedback);
 /*
         btnMoveUp = (Button) findViewById(R.id.btnMoveUp);
         btnMoveUp.setText("^");
@@ -183,6 +185,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
 */
         buttonProceeding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ProceedingsActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        buttonFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);

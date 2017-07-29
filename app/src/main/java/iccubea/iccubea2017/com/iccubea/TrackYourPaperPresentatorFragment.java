@@ -119,7 +119,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         editTextSearch.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editTextSearch.setQueryHint("Enter author name or paper ID");
+                editTextSearch.setQueryHint("Author name, PID or Track");
             }
         });
         int j = 0;
@@ -228,7 +228,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         displayResultList = new ArrayList<>();
         for(Paper p : paper)
         {
-            if(String.valueOf(p.getPid()).contains(idOrDomain.toLowerCase()) || p.getAuthor().toLowerCase().contains(idOrDomain.toLowerCase()))
+            if(String.valueOf(p.getPid()).contains(idOrDomain.toLowerCase()) || p.getAuthor().toLowerCase().contains(idOrDomain.toLowerCase()) || String.valueOf(p.getTrack()).contains(idOrDomain.toLowerCase()))
             {
                 resultsIds.add(String.valueOf(p.getPid()));
                 resultsDom.add(p.getTrack());

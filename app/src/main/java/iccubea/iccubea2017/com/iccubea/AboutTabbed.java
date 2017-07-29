@@ -84,7 +84,9 @@ public class AboutTabbed extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("About ICCUBEA"));
+
+        tabLayout.addTab(tabLayout.newTab().setText("Keynote"));
+        tabLayout.addTab(tabLayout.newTab().setText("ICCUBEA"));
         //tabLayout.addTab(tabLayout.newTab().setText("About Dept"));
         tabLayout.addTab(tabLayout.newTab().setText("About PCCOE"));
 

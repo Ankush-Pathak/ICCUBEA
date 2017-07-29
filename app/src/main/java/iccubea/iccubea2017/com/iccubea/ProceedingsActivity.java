@@ -2,14 +2,18 @@ package iccubea.iccubea2017.com.iccubea;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +37,6 @@ public class ProceedingsActivity extends AppCompatActivity {
     ArrayAdapter arrayAdapter;
     String domainSelected = "";
     String[] domains = { "Show all tracks",
-
             "Image Processing and Computer Vision",
             "Computer and Communication Security",
             "Databases and Big Data",
@@ -94,8 +97,10 @@ public class ProceedingsActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     proceedingArrayListFull.add(ds.getValue(Proceeding.class));
+                    Log.d("Firebase","Added to list, length of list " + proceedingArrayListFull.size());
                 }
                 proceedingArrayList = new ArrayList<Proceeding>(proceedingArrayListFull);
+                Log.d("Firebase","Called searchview");
                 searchListView("");
                 searchViewProceeding.setEnabled(true);
             }
@@ -110,6 +115,12 @@ public class ProceedingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showDomainDialog();
+            }
+        });
+        listViewProceeding.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                showProceedingDialog(position);
             }
         });
     }
@@ -170,6 +181,43 @@ public class ProceedingsActivity extends AppCompatActivity {
             }
         });
         dialogSelectDomain.show();
+    }
+
+    void showProceedingDialog(final int position)
+    {
+        final Dialog dialog = new Dialog(ProceedingsActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog);
+        dialog.setContentView(R.layout.dialog_view_proceeding);
+        TextView textViewName, textViewPID,textViewTitle,textViewTrack;
+        Button buttonOk, buttonViewProceeding;
+
+        textViewName = (TextView)dialog.findViewById(R.id.textViewAuthorName);
+        textViewName.append(proceedingArrayList.get(position).getAuthor());
+
+        textViewTrack = (TextView)dialog.findViewById(R.id.textViewDom);
+        textViewTrack.append(proceedingArrayList.get(position).getDomain());
+
+        textViewTitle = (TextView)dialog.findViewById(R.id.textViewPaperTitle);
+        textViewTitle.append(proceedingArrayList.get(position).getPaperTitle());
+
+        buttonViewProceeding = (Button)dialog.findViewById(R.id.buttonProceedingViewPaper);
+        buttonOk = (Button)dialog.findViewById(R.id.btnOkDialog);
+
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        buttonViewProceeding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(proceedingArrayList.get(position).getLink()));
+                startActivity(intent);
+            }
+        });
+        dialog.show();
     }
     @Override
     public void onBackPressed() {
