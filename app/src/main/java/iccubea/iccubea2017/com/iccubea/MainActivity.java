@@ -3,9 +3,11 @@ package iccubea.iccubea2017.com.iccubea;
 
 import android.content.Intent;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.CountDownTimer;
 
 
@@ -19,8 +21,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +43,7 @@ import at.grabner.circleprogress.TextMode;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     int flag=0,frag_flag = 1;
+    RelativeLayout relativeLayout;
     BlankFragment fragment;
     FragmentManager fragmentManager;
     Button btnMoveUp, buttonProceeding,buttonFeedback;
@@ -54,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     BottomBar mbottomBar;
     BottomNavigationView bottomNavigationView;
+    int maxHeight,maxWidth;
 
     @Override
 
@@ -62,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         System.gc();
         setContentView(R.layout.activity_main);
+
+
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         Menu menu = bottomNavigationView.getMenu();
@@ -120,8 +129,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         flag=0;
         initialise();
-       // updateHrs();
-       // updateMin();
+//        circleProgressViewMin.setLayoutParams(new RelativeLayout.LayoutParams(pxToDp((int)maxWidth/2),  pxToDp((int)maxHeight/2)));
+//        circleProgressViewHrs.setLayoutParams(new RelativeLayout.LayoutParams(pxToDp((int)maxWidth/4),  pxToDp((int)maxHeight/4)));
+        updateHrs();
+        updateMin();
         //updateDays();
         updateSeconds();
        // btnMoveUp.setOnClickListener(MainActivity.this);
@@ -134,6 +145,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 moveButton();
         }
         //sharedPreferences=getSharedPreferences("home", MODE_PRIVATE);
+    }
+    public static int pxToDp(int px) {
+        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
     }
 
     void initialise() {
@@ -151,19 +165,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
         dateTime = new DateTime(2017, 8, 17,9, 05);
         dateTimeNow = DateTime.now();
-        //circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
-       // circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
+        circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
+        circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
+        circleProgressViewMin.setVisibility(View.INVISIBLE);
+        circleProgressViewHrs.setVisibility(View.INVISIBLE);
        // circleProgressViewDays = (CircleProgressView) findViewById(R.id.circularProgressDays);
         circleProgressViewSec.setTextTypeface(typeface);
-       // circleProgressViewMin.setTextTypeface(typeface);
-       // circleProgressViewDays.setTextTypeface(typeface);
-        spinnerBarWidth = circleProgressViewSec.getBarWidth() - 25;
+//        circleProgressViewMin.setTextTypeface(typeface);
+//        circleProgressViewDays.setTextTypeface(typeface);
+        spinnerBarWidth = circleProgressViewSec.getBarWidth() - 20;
         spinnerTextSize = circleProgressViewSec.getTextSize() + 45;
         contourSize = 3;
-        //textView = (TextView) findViewById(R.id.textView2);
-        //textView.setTypeface(typeface);
+        textView = (TextView) findViewById(R.id.textView2);
+        textView.setTypeface(typeface);
         buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
         buttonFeedback = (Button)findViewById(R.id.buttonMainAcitivtyFeedback);
+        relativeLayout=(RelativeLayout)findViewById(R.id.relativeLayoutMain);
 /*
         btnMoveUp = (Button) findViewById(R.id.btnMoveUp);
         btnMoveUp.setText("^");
@@ -200,6 +217,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finish();
             }
         });
+/*
+
+        relativeLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    relativeLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    //noinspection deprecation
+                    relativeLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                }
+                maxHeight = circleProgressViewSec.getHeight();
+                maxWidth = circleProgressViewSec.getWidth();
+            }
+        });
+*/
 
 
     }
@@ -215,11 +248,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     void updateSeconds() {
 
 
-        circleProgressViewSec.setBarColor(Color.parseColor("#3F51B5"));
+        circleProgressViewSec.setBarColor(Color.parseColor("#009688"));
         circleProgressViewSec.setMaxValue(59);
         circleProgressViewSec.setValueAnimated(100);
-
-        circleProgressViewSec.setBarColor(Color.parseColor("#ff7043"));
         circleProgressViewSec.setMaxValue(60);
         //circleProgressViewSec.setValueAnimated(100);
         //circleProgressViewSec.setText(String.valueOf(period.getDays()));
@@ -241,10 +272,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         countDownTimerSec.cancel();
                         //countDownTimerDays.cancel();
                         //countDownTimerHrs.cancel();
-                       // countDownTimerMin.cancel();
+                        //countDownTimerMin.cancel();
 
                         TextView textView = (TextView)findViewById(R.id.textView2);
-                        textView.setText("Welcome to cPGCON 2016!");
+                        textView.setText("Welcome to ICCUBEA 2017!");
                         textView.setTextColor(Color.parseColor("#ff7043"));
 
                     }
@@ -254,10 +285,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     periodHrs = new Period(dateTimeNow, dateTime);
                     periodMin = new Period(dateTimeNow, dateTime);
                     periodDays = new Period(dateTimeNow, dateTime);
-                    circleProgressViewSec.setText(String.valueOf(periodSec.getSeconds()) + "sec");
+                    String text=String.valueOf(periodDays.getDays()) + " Days : "
+                            +String.valueOf(periodHrs.getHours()) + " Hrs : "
+                            +String.valueOf(periodMin.getMinutes()) + " Min : "
+                            +String.valueOf(periodSec.getSeconds()) + " Sec";
+                    circleProgressViewSec.setText(text);
                     circleProgressViewSec.setValueAnimated(periodSec.getSeconds());
                     if (periodSec.getSeconds() == 59) {
-                    //    circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
+                        //circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
 
                        // circleProgressViewHrs.setValueAnimated(periodHrs.getHours());
                         //circleProgressViewMin.setText(String.valueOf(periodMin.getMinutes()) + "min");
@@ -271,22 +306,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onFinish()
                 {
 
-                    Toast.makeText(getApplicationContext(),"Conference concluded on 25th of march",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Conference concluded on 17th of August",Toast.LENGTH_LONG).show();
                 }
             }.start();
         }
         else
         {
-            circleProgressViewDays.setValue(0);
-            circleProgressViewDays.setText("0days");
+//            circleProgressViewDays.setValue(0);
+//            circleProgressViewDays.setText("0days");
             circleProgressViewSec.setValue(0);
-            circleProgressViewSec.setText("0sec");
-            circleProgressViewMin.setValue(0);
-            circleProgressViewMin.setText("0min");
-            circleProgressViewHrs.setValue(0);
-            circleProgressViewHrs.setText("0hrs");
+            circleProgressViewSec.setText("0 Day : 0 Hrs : 0 Min : 0 Sec");
+//            circleProgressViewMin.setValue(0);
+//            circleProgressViewMin.setText("0min");
+//            circleProgressViewHrs.setValue(0);
+//            circleProgressViewHrs.setText("0hrs");
             TextView textView = (TextView)findViewById(R.id.textView2);
-            textView.setText("Welcome to cPGCON 2016!");
+            textView.setText("Welcome to ICCUBEA 2017!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
             moveButton();
@@ -295,7 +330,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-   /* void updateHrs() {
+    void updateHrs() {
 
 
         circleProgressViewHrs.setBarColor(Color.parseColor("#ff7043"));
@@ -314,7 +349,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onTick(long l) {
                     dateTimeNow = DateTime.now();
                     periodHrs = new Period(dateTimeNow, dateTime);
-                    circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
+                    //circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
                     circleProgressViewHrs.setValueAnimated(periodHrs.getHours());
 
                 }
@@ -325,16 +360,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }.start();
         } else {
-            circleProgressViewDays.setValue(0);
-            circleProgressViewDays.setText("0days");
-            circleProgressViewSec.setValue(0);
-            circleProgressViewSec.setText("0sec");
-            circleProgressViewMin.setValue(0);
-            circleProgressViewMin.setText("0min");
-            circleProgressViewHrs.setValue(0);
-            circleProgressViewHrs.setText("0hrs");
-            TextView textView = (TextView)findViewById(R.id.textView2);
-            textView.setText("Welcome to cPGCON 2016!");
+//            circleProgressViewDays.setValue(0);
+//            circleProgressViewDays.setText("0days");
+//            circleProgressViewSec.setValue(0);
+//            circleProgressViewSec.setText("0sec");
+//            circleProgressViewMin.setValue(0);
+//            circleProgressViewMin.setText("0min");
+//            circleProgressViewHrs.setValue(0);
+//            circleProgressViewHrs.setText("0hrs");
+           TextView textView = (TextView)findViewById(R.id.textView2);
+            textView.setText("Welcome to ICCUBEA 2017!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
             moveButton();
@@ -360,7 +395,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onTick(long l) {
                     dateTimeNow = DateTime.now();
                     periodMin = new Period(dateTimeNow, dateTime);
-                    circleProgressViewMin.setText(String.valueOf(periodMin.getMinutes()) + "min");
+                    //circleProgressViewMin.setText(String.valueOf(periodMin.getMinutes()) + "min");
                     circleProgressViewMin.setValueAnimated(periodMin.getMinutes());
 
                 }
@@ -371,23 +406,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }.start();
         } else {
-            circleProgressViewDays.setValue(0);
-            circleProgressViewDays.setText("0days");
-            circleProgressViewSec.setValue(0);
-            circleProgressViewSec.setText("0sec");
-            circleProgressViewMin.setValue(0);
-            circleProgressViewMin.setText("0min");
-            circleProgressViewHrs.setValue(0);
-            circleProgressViewHrs.setText("0hrs");
+//            circleProgressViewDays.setValue(0);
+//            circleProgressViewDays.setText("0days");
+//            circleProgressViewSec.setValue(0);
+//            circleProgressViewSec.setText("0sec");
+//            circleProgressViewMin.setValue(0);
+//            circleProgressViewMin.setText("0min");
+//            circleProgressViewHrs.setValue(0);
+//            circleProgressViewHrs.setText("0hrs");
             TextView textView = (TextView)findViewById(R.id.textView2);
-            textView.setText("Welcome to cPGCON 2016!");
+            textView.setText("Welcome to ICCUBEA 2017!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
             moveButton();
         }
         //circleProgressViewSec.setValueAnimated(0,60,60000);
     }
-
+/*
     void updateDays() {
 
         circleProgressViewDays.setBarColor(Color.parseColor("#ff7043"));
