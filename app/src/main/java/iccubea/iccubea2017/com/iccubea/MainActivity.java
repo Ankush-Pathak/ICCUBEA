@@ -1,8 +1,10 @@
 package iccubea.iccubea2017.com.iccubea;
 /*Coded by Alohamora, the to be greatest programmers earth has seen*/
 
+import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 
@@ -17,6 +19,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -29,6 +32,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabSelectedListener;
 
@@ -56,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Period periodSec, periodHrs, periodMin, periodDays;
     CountDownTimer countDownTimerSec, countDownTimerHrs, countDownTimerMin, countDownTimerDays;
     int spinnerBarWidth, spinnerTextSize,contourSize,i;
+    boolean enableFeedback = false, enableProceeding = false, countDownDone = false;
+    DatabaseReference databaseReference;
 
 
     BottomBar mbottomBar;
@@ -70,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         System.gc();
         setContentView(R.layout.activity_main);
 
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
@@ -131,8 +142,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initialise();
 //        circleProgressViewMin.setLayoutParams(new RelativeLayout.LayoutParams(pxToDp((int)maxWidth/2),  pxToDp((int)maxHeight/2)));
 //        circleProgressViewHrs.setLayoutParams(new RelativeLayout.LayoutParams(pxToDp((int)maxWidth/4),  pxToDp((int)maxHeight/4)));
-        updateHrs();
-        updateMin();
         //updateDays();
         updateSeconds();
        // btnMoveUp.setOnClickListener(MainActivity.this);
@@ -146,9 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         //sharedPreferences=getSharedPreferences("home", MODE_PRIVATE);
     }
-    public static int pxToDp(int px) {
-        return (int) (px / Resources.getSystem().getDisplayMetrics().density);
-    }
+
 
     void initialise() {
         System.gc();
@@ -163,7 +170,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        //  btnMoveUp = (Button) findViewById(R.id.);
        // btnMoveUp.setText("^");
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
-        dateTime = new DateTime(2017, 8, 17,9, 05);
+        dateTime = new DateTime(2017, 7, 29,20, 51);
         dateTimeNow = DateTime.now();
         circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
         circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
@@ -181,6 +188,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
         buttonFeedback = (Button)findViewById(R.id.buttonMainAcitivtyFeedback);
         relativeLayout=(RelativeLayout)findViewById(R.id.relativeLayoutMain);
+        databaseReference.keepSynced(true);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    Log.d("Firebase","Keys : " + ds.getKey() + " value : " + ds.getValue().toString());
+                    if(ds.getKey().equals("enableFeedback") && ds.getValue(Boolean.class)){
+                        Log.d("Firebase","Button now visible");
+                        buttonFeedback.setVisibility(View.VISIBLE);
+                        enableFeedback = true;}
+
+                    if(ds.getKey().equals("enableProceedings") && ds.getValue(Boolean.class)){
+                        Log.d("Firebase","Setting proceeding");
+                        enableProceeding = true;
+                        updateSeconds();
+                        if(countDownDone) {
+                            circleProgressViewSec.setText("Tap here for proceedings");
+                            circleProgressViewSec.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(MainActivity.this, ProceedingsActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            });
+
+                        }
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 /*
         btnMoveUp = (Button) findViewById(R.id.btnMoveUp);
         btnMoveUp.setText("^");
@@ -201,22 +246,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView.setTypeface(typeface);
         buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
 */
-        buttonProceeding.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProceedingsActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        buttonFeedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+
 /*
 
         relativeLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -233,7 +263,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 */
-
+        if(!enableFeedback)
+            buttonFeedback.setVisibility(View.INVISIBLE);
+        buttonFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sharedPre = getSharedPreferences("sharedPref", Context.MODE_PRIVATE);
+                boolean submittedFeedback = sharedPre.getBoolean("hasSubmittedFeedback",false);
+                if(submittedFeedback)
+                    Toast.makeText(MainActivity.this,"You have already submitted feedback",Toast.LENGTH_LONG).show();
+                else {
+                    Intent intent = new Intent(MainActivity.this, FeedbackActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
 
     }
 
@@ -267,25 +312,45 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 @Override
                 public void onTick(long l) {
                     dateTimeNow = DateTime.now();
-                    if(dateTimeNow.isAfter(dateTime))
-                    {
-                        countDownTimerSec.cancel();
-                        //countDownTimerDays.cancel();
-                        //countDownTimerHrs.cancel();
-                        //countDownTimerMin.cancel();
-
-                        TextView textView = (TextView)findViewById(R.id.textView2);
-                        textView.setText("Welcome to ICCUBEA 2017!");
-                        textView.setTextColor(Color.parseColor("#ff7043"));
-
-                    }
-
-
                     periodSec = new Period(dateTimeNow, dateTime);
                     periodHrs = new Period(dateTimeNow, dateTime);
                     periodMin = new Period(dateTimeNow, dateTime);
                     periodDays = new Period(dateTimeNow, dateTime);
-                    String text=String.valueOf(periodDays.getDays()) + " Days : "
+                    if(periodSec.getSeconds() == 0)
+                    {
+                        circleProgressViewSec.setValue(0);
+                        countDownTimerSec.cancel();
+                        //countDownTimerDays.cancel();
+                        //countDownTimerHrs.cancel();
+                        //countDownTimerMin.cancel();
+                        countDownDone = true;
+                        startActivity(new Intent(MainActivity.this,MainActivity.class));
+                        finish();
+                        TextView textView = (TextView)findViewById(R.id.textView2);
+                        textView.setText("Welcome to ICCUBEA 2017!");
+                        textView.setTextColor(Color.parseColor("#ff7043"));
+                        if(enableProceeding)
+                        {
+                            circleProgressViewSec.setText("Tap here for proceedings");
+                            circleProgressViewSec.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent intent = new Intent(MainActivity.this,ProceedingsActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            });
+                        }
+                        else
+                        {
+                            circleProgressViewSec.setText("Watch this space for proceedings");
+                        }
+
+                    }
+
+
+
+                    String text=String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + " Days : "
                             +String.valueOf(periodHrs.getHours()) + " Hrs : "
                             +String.valueOf(periodMin.getMinutes()) + " Min : "
                             +String.valueOf(periodSec.getSeconds()) + " Sec";
@@ -324,13 +389,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textView.setText("Welcome to ICCUBEA 2017!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
-            moveButton();
+            countDownDone = true;
+            if(enableProceeding)
+            {
+                circleProgressViewSec.setText("Tap here for proceedings");
+                circleProgressViewSec.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this,ProceedingsActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+            }
+            else
+            {
+                circleProgressViewSec.setText("Watch this space for proceedings");
+            }
+
+            //moveButton();
         }
         //circleProgressViewSec.setValueAnimated(0,60,60000);
     }
 
 
-    void updateHrs() {
+    /*void updateHrs() {
 
 
         circleProgressViewHrs.setBarColor(Color.parseColor("#ff7043"));
@@ -372,12 +455,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textView.setText("Welcome to ICCUBEA 2017!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
-            moveButton();
+            //moveButton();
         }
         //circleProgressViewSec.setValueAnimated(0,60,60000);
-    }
+    }*/
 
-    void updateMin() {
+    /*void updateMin() {
 
         circleProgressViewMin.setBarColor(Color.parseColor("#ff7043"));
         circleProgressViewMin.setMaxValue(60);
@@ -418,10 +501,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             textView.setText("Welcome to ICCUBEA 2017!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
-            moveButton();
+            //moveButton();
         }
         //circleProgressViewSec.setValueAnimated(0,60,60000);
-    }
+    }*/
 /*
     void updateDays() {
 

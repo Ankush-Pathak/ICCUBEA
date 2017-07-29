@@ -7,26 +7,30 @@
     tools:context="iccubea.iccubea2017.com.iccubea.MainActivity"
     android:orientation="vertical"
     android:id="@+id/relativeLayoutMain"
-    android:background="@color/colorBackground">
+    android:background="@color/colorBackground"
+    android:layout_gravity="center">
 
     <Button
         android:id="@+id/buttonMainAcitivitProceeding"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proceedings" />
+        android:text="Proceedings"
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/buttonMainAcitivtyFeedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonMainAcitivitProceeding"
-        android:text="Feedback" />
+        android:layout_above="@id/bottomNavView_Bar"
+        android:layout_centerHorizontal="true"
+        android:text="Submit Feedback" />
 
     <at.grabner.circleprogress.CircleProgressView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/circularProgressSec"
-        android:padding="20dp"/>
+        android:padding="20dp"
+        />
 
     <at.grabner.circleprogress.CircleProgressView
         android:layout_width="350dp"
@@ -132,6 +136,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_navigation_main"
+        app:itemIconTint="#727272"
+        app:itemTextColor="#727272"
         app:elevation="100dp"
         android:background="@drawable/button"
         android:layout_alignParentBottom="true"/>
