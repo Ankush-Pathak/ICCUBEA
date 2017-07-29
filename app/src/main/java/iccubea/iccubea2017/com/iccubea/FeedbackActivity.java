@@ -115,9 +115,23 @@ public class FeedbackActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("hasSubmittedFeedback",hasSubmittedFeedback);
                 editor.commit();
+                Intent intent = new Intent(FeedbackActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
 
+
+
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FeedbackActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }

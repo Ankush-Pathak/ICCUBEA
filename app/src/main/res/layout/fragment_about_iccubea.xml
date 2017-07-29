@@ -26,6 +26,8 @@
                 android:layout_height="match_parent"
                 android:layout_alignEnd="@+id/abt_pccoe_title"
                 android:layout_alignRight="@+id/abt_pccoe_title"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
                 android:src="@drawable/iccubea_logo" />
 
             <LinearLayout

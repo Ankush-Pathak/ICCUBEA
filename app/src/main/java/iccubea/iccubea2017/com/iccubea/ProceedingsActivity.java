@@ -64,19 +64,14 @@ public class ProceedingsActivity extends AppCompatActivity {
         proceedingArrayListFull = new ArrayList<>();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Proceedings");
-
-
-        searchViewProceeding.setIconified(true);
+        databaseReference.keepSynced(true);
+        Log.d("Firebase",databaseReference.toString());
+        searchViewProceeding.setQueryHint("Enter paper title");
+        searchViewProceeding.setIconified(false);
         searchViewProceeding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 searchViewProceeding.setIconified(!searchViewProceeding.isIconified());
-            }
-        });
-        searchViewProceeding.setOnSearchClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchViewProceeding.setQueryHint("Enter paper title");
             }
         });
         searchViewProceeding.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -95,6 +90,7 @@ public class ProceedingsActivity extends AppCompatActivity {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.d("Firebase","Listener added");
                 for(DataSnapshot ds: dataSnapshot.getChildren()) {
                     proceedingArrayListFull.add(ds.getValue(Proceeding.class));
                     Log.d("Firebase","Added to list, length of list " + proceedingArrayListFull.size());
@@ -107,7 +103,7 @@ public class ProceedingsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Log.d("Firebase","Error : " + databaseError.getDetails() + " " + databaseError.getMessage());
             }
         });
 
@@ -187,6 +183,7 @@ public class ProceedingsActivity extends AppCompatActivity {
     {
         final Dialog dialog = new Dialog(ProceedingsActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog);
         dialog.setContentView(R.layout.dialog_view_proceeding);
+        dialog.setTitle("Details : ");
         TextView textViewName, textViewPID,textViewTitle,textViewTrack;
         Button buttonOk, buttonViewProceeding;
 

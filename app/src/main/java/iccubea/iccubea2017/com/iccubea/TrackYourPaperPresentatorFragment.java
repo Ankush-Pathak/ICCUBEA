@@ -17,6 +17,7 @@ import android.text.SpannableString;
 import android.text.TextWatcher;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -60,6 +61,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
     TextView textview;
     View view;
     ArrayList<Paper> paper;
+    boolean searchViewEnable;
 
     public TrackYourPaperPresentatorFragment() {
         // Required empty public constructor
@@ -80,10 +82,17 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (newText.length() > 1)
-                    search();
-                else
-                    listView.setAdapter(null);
+                if (searchViewEnable) {
+                    if (newText.length() > 1) {
+                        search();
+                    }
+                }
+                else {
+                        listView.setAdapter(null);
+                        Toast.makeText(getActivity(), "Retriving data, ensure data connection.",Toast.LENGTH_LONG).show();
+                    }
+
+
                 return false;
             }
         });
@@ -105,28 +114,29 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
         //sqLiteDatabase = ((TrackYourPaperTabbed)getActivity()).sqLiteDatabase;
         editTextSearch = (SearchView)view.findViewById(R.id.editTextSearch);
-        editTextSearch.setIconified(true);
         editTextSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editTextSearch.isEnabled() == false)
+                if(searchViewEnable == false)
                 {
                     Toast.makeText(getActivity(), "Retriving data, ensure data connection.",Toast.LENGTH_LONG).show();
                 }
                 editTextSearch.setIconified(!editTextSearch.isIconified());
             }
         });
+
         editTextSearch.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editTextSearch.setQueryHint("Author name, PID or Track");
             }
         });
-        int j = 0;
+        editTextSearch.setIconified(false);
         paper = new ArrayList<>();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Presenters");
         databaseReference.keepSynced(true);
+        searchViewEnable = false;
         editTextSearch.setEnabled(false);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -136,7 +146,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 {
                     paper.add(ds.getValue(Paper.class));
                 }
-                editTextSearch.setEnabled(true);
+                searchViewEnable = true;
             }
 
             @Override
