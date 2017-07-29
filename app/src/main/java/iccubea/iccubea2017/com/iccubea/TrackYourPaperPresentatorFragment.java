@@ -44,7 +44,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class TrackYourPaperPresentatorFragment extends Fragment implements AdapterView.OnItemSelectedListener{
-    ArrayList<String> resultsIds,resultsDom,resultsLoc,resultsDat,resultsTime,resultsName,resultsTitle;
+    ArrayList<String> resultsIds,resultsDom,resultsLoc,resultsDat,resultsTime,resultsName,resultsTitle,resultsSessionChairs;
     SQLiteDatabase sqLiteDatabase;
     Spinner spinner;
     Cursor databasePaper;
@@ -164,6 +164,8 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         resultsTime = new ArrayList();
         resultsName = new ArrayList();
         resultsTitle = new ArrayList<>();
+        resultsSessionChairs = new ArrayList<>();
+
 
         //For Contact
         spinner=(Spinner)view.findViewById(R.id.spinner);
@@ -247,6 +249,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 resultsTime.add(p.getTime());
                 resultsName.add(p.getAuthor());
                 resultsTitle.add(p.getTitle());
+                resultsSessionChairs.add(p.getSession_chairs());
                 SpannableString name, paperId, track;
                 name = new SpannableString("Name");
                 name.setSpan(new StyleSpan(Typeface.BOLD),0,"Name".length(),0);
@@ -281,7 +284,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         dialog.setContentView(R.layout.customdialog);
 
         dialog.setTitle("Details : ");
-        TextView textViewId,textViewDom,textViewDate,textViewVen,textViewTime,textViewName,textViewTitle;
+        TextView textViewId,textViewDom,textViewDate,textViewVen,textViewTime,textViewName,textViewTitle,textViewSessionChairs;
         Button btnOk;
         textViewDate = (TextView)dialog.findViewById(R.id.textViewDate);
         textViewDom = (TextView)dialog.findViewById(R.id.textViewDom);
@@ -290,11 +293,14 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         textViewTime = (TextView)dialog.findViewById(R.id.textViewTime);
         textViewName = (TextView)dialog.findViewById(R.id.textViewAuthorName);
         textViewTitle = (TextView)dialog.findViewById(R.id.textViewPaperTitle);
+        textViewSessionChairs = (TextView)dialog.findViewById(R.id.textViewSessionChair);
+
         textViewDate.append(" " + resultsDat.get(i));
         textViewDom.append(" " + resultsDom.get(i));
         textViewTime.append(" " + resultsTime.get(i));
         textViewVen.append(" " + resultsLoc.get(i));
         textViewId.append(" " + resultsIds.get(i));
+        textViewSessionChairs.append(" " + resultsSessionChairs.get(i));
         textViewName.append(" " + resultsName.get(i));
         textViewTitle.append(" " + resultsTitle.get(i));
         btnOk = (Button)dialog.findViewById(R.id.btnOkDialog);
@@ -374,7 +380,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
                 break;
             case 3:
-                name="Prof Sonal Gore";
+                name="Mrs. Sonal Gore";
                 phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
@@ -388,41 +394,41 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
                 break;
             case 6:
-                name="Prof Shailaja Pede";
+                name="Mrs. Rajni";
                 phnum="tel:9226094971";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 7:
-                name="Prof Meghana Lokhande";
+                name="Dr. Kinage";
                 phnum="tel:9823334381";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 8:
-                name="Prof Atul Pawar";
+                name="Dr. Kolate";
                 phnum="tel:9226094984";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 9:
-                name="Prof B.Mahalakshmi";
+                name="Dr. V.N. Patil";
                 phnum="tel:9226094969";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 10:
-                name="Dr.Sonali Patil";
+                name="Dr.Swati Shinde";
                 phnum="tel:9226094990";
                 displayDialog1(item,phnum,name);
 
 
                 break;
-            case 11:
+          /*  case 11:
                 name="Prof Santvana Gudhade";
                 phnum="tel:8380095194";
                 displayDialog1(item,phnum,name);
@@ -457,7 +463,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
 
                 break;
-
+            */
         }
         handler = new Handler();
         handler.postDelayed(new Runnable() {
