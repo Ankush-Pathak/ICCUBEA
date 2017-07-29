@@ -178,7 +178,7 @@ public class CmtLogin extends AppCompatActivity {
         if (flag == 0) {
 
 
-            cmt.loadUrl("https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FCPGCON2016");
+            cmt.loadUrl("https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICCUBEA2017");
 
 
            /* while(cmt.getProgress()!=50)

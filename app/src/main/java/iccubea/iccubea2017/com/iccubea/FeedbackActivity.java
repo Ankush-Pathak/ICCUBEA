@@ -119,5 +119,16 @@ public class FeedbackActivity extends AppCompatActivity {
         });
 
 
+
+
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(FeedbackActivity.this,MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 }
