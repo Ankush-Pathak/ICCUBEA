@@ -1,6 +1,7 @@
 package iccubea.iccubea2017.com.iccubea;
 /*Coded by Alohamora, the to be greatest programmers earth has seen*/
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout relativeLayout;
     BlankFragment fragment;
     FragmentManager fragmentManager;
-    Button btnMoveUp, buttonProceeding,buttonFeedback;
+    Button btnMoveUp, buttonProceeding,buttonFeedback, buttonSchedule;
     int height;
     double offset;
     TextView textView;
@@ -187,6 +188,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView.setTypeface(typeface);
         buttonProceeding = (Button)findViewById(R.id.buttonMainAcitivitProceeding);
         buttonFeedback = (Button)findViewById(R.id.buttonMainAcitivtyFeedback);
+        buttonSchedule = (Button)findViewById(R.id.buttonMainActivityICCUBEASchedule);
         relativeLayout=(RelativeLayout)findViewById(R.id.relativeLayoutMain);
         databaseReference.keepSynced(true);
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -264,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 */
         if(!enableFeedback)
-            buttonFeedback.setVisibility(View.INVISIBLE);
+            buttonFeedback.setVisibility(View.GONE);
         buttonFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -277,6 +279,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                     finish();
                 }
+            }
+        });
+
+        buttonSchedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showScheduleDialog();
             }
         });
 
@@ -581,6 +590,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    void showScheduleDialog()
+    {
+        final Dialog dialog = new Dialog(MainActivity.this,android.R.style.Theme_DeviceDefault_Light_Dialog);
+        dialog.setContentView(R.layout.dialog_iccubea_schedule);
+        dialog.setTitle("ICCUBEA 2017 Schedule");
+        Button buttonOk;
+        buttonOk = (Button)dialog.findViewById(R.id.buttonDialogScheduleOk);
+        buttonOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
     @Override
     public void onBackPressed() {
         if(flag == 1 && frag_flag == 1)
@@ -600,5 +625,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentManager.beginTransaction().remove(fragment).commit();
         btnMoveUp.setVisibility(View.VISIBLE);
     }
+
+
 
 }

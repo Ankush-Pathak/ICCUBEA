@@ -17,13 +17,30 @@
         android:text="Proceedings"
         android:visibility="invisible"/>
 
-    <Button
-        android:id="@+id/buttonMainAcitivtyFeedback"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/bottomNavView_Bar"
         android:layout_centerHorizontal="true"
-        android:text="Submit Feedback" />
+        android:layout_marginBottom="3dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonMainActivityICCUBEASchedule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ICCUBEA Schedule" />
+
+        <Button
+            android:id="@+id/buttonMainAcitivtyFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/bottomNavView_Bar"
+            android:layout_centerHorizontal="true"
+            android:text="Submit Feedback" />
+    </LinearLayout>
+
 
     <at.grabner.circleprogress.CircleProgressView
         android:layout_width="match_parent"
