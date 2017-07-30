@@ -7,11 +7,13 @@
         android:icon="@drawable/ic_track_venue"
         android:title="Track"
 
+
     />
     <item
         android:id="@+id/navigation_button_CMT"
         android:icon="@drawable/ic_cmt"
         android:title="Login"
+
         />
     <item
         android:id="@+id/navigation_button_Location"

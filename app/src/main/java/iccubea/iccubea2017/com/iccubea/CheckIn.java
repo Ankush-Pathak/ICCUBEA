@@ -49,6 +49,7 @@ public class CheckIn extends AppCompatActivity implements AdapterView.OnItemSele
         setContentView(R.layout.activity_check_in);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavView_Bar);
+
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
         Menu menu = bottomNavigationView.getMenu();
