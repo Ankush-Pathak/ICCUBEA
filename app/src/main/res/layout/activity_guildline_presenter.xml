@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="iccubea.iccubea2017.com.iccubea.GuidelinePresenter"
+    android:orientation="vertical">
+
+    <fragment
+        android:id="@+id/fragmentGuideline"
+        android:name="iccubea.iccubea2017.com.iccubea.BlankFragment1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavViewGuide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:background="@drawable/button"
+        app:elevation="1dp"
+        app:menu="@menu/bottom_navigation_main">
+
+    </android.support.design.widget.BottomNavigationView>
+</LinearLayout>

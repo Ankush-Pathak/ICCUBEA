@@ -57,14 +57,14 @@ public class AboutTabbed extends AppCompatActivity {
                 else if(item.getItemId() == R.id.navigation_button_Location)
                 {
                     //CheckIn checkIn = new CheckIn();
-                    intent = new Intent(AboutTabbed.this,CheckIn.class);
+                    intent = new Intent(AboutTabbed.this,ActivityReachPCCOE.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(AboutTabbed.this,Guidelines1.class);
+                    intent = new Intent(AboutTabbed.this,GuidelinePresenter.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);
@@ -84,7 +84,9 @@ public class AboutTabbed extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = (TabLayout)findViewById(R.id.tab_layout);
-        tabLayout.addTab(tabLayout.newTab().setText("About ICCUBEA"));
+
+        tabLayout.addTab(tabLayout.newTab().setText("Keynote"));
+        tabLayout.addTab(tabLayout.newTab().setText("ICCUBEA"));
         //tabLayout.addTab(tabLayout.newTab().setText("About Dept"));
         tabLayout.addTab(tabLayout.newTab().setText("About PCCOE"));
 

@@ -16,11 +16,7 @@ import android.widget.TextView;
  */
 public class BlankFragment1 extends Fragment {
 
-    TextView tv100,tv101,tv102,tv103,tv104,tv105,tv106,tv107,tv108,tv109,tv110,tv111,tv113;
-
-
-    //TextView tv100,tv101,tv102,tv103,tv104,tv105;//tv106,tv107,tv108,tv109,tv110,tv111,tv113;
-
+    TextView tv100,tv101,tv102,tv103,tv104,tv105;//tv106,tv107,tv108,tv109,tv110,tv111,tv113;
     public BlankFragment1() {
         // Required empty public constructor
     }
@@ -37,11 +33,9 @@ public class BlankFragment1 extends Fragment {
         tv104 = (TextView)view.findViewById(R.id.textView104);
         tv105 = (TextView)view.findViewById(R.id.textView105);
 
-
         //just for test
 /*        tv106 = (TextView)view.findViewById(R.id.textView106);
 >>>>>>> 9717e8cfade27ad0e7eb9422175da76dc89b9b06
->>>>>>> a9dceb9e9013b629255aed8e3a6eddd838c77914
         tv107 = (TextView)view.findViewById(R.id.textView107);
         tv108 = (TextView)view.findViewById(R.id.textView108);
         tv109 = (TextView)view.findViewById(R.id.textView109);
@@ -50,11 +44,7 @@ public class BlankFragment1 extends Fragment {
 <<<<<<< HEAD
         tv113 = (TextView)view.findViewById(R.id.textView113);
 =======
-<<<<<<< HEAD
-        tv113 = (TextView)view.findViewById(R.id.textView113);
-=======
         tv113 = (TextView)view.findViewById(R.id.textView113);*/
-
 
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "Museo300-Regular.otf");
         tv100.setTypeface(tf);
@@ -66,18 +56,13 @@ public class BlankFragment1 extends Fragment {
         tv104.setTypeface(tf1);
         tv105.setTypeface(tf1);
 
-
 /*        tv106.setTypeface(tf1);
 >>>>>>> 9717e8cfade27ad0e7eb9422175da76dc89b9b06
->>>>>>> a9dceb9e9013b629255aed8e3a6eddd838c77914
         tv107.setTypeface(tf1);
         tv108.setTypeface(tf1);
         tv109.setTypeface(tf1);
         tv110.setTypeface(tf1);
         tv111.setTypeface(tf1);
-<<<<<<< HEAD
-        tv113.setTypeface(tf1);
-=======
 <<<<<<< HEAD
         tv113.setTypeface(tf1);
 =======

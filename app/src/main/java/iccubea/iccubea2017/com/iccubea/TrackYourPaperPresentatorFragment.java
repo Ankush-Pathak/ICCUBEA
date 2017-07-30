@@ -12,8 +12,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.text.TextWatcher;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -40,7 +44,7 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class TrackYourPaperPresentatorFragment extends Fragment implements AdapterView.OnItemSelectedListener{
-    ArrayList<String> resultsIds,resultsDom,resultsLoc,resultsDat,resultsTime,resultsName,resultsTitle;
+    ArrayList<String> resultsIds,resultsDom,resultsLoc,resultsDat,resultsTime,resultsName,resultsTitle,resultsSessionChairs;
     SQLiteDatabase sqLiteDatabase;
     Spinner spinner;
     Cursor databasePaper;
@@ -57,6 +61,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
     TextView textview;
     View view;
     ArrayList<Paper> paper;
+    boolean searchViewEnable;
 
     public TrackYourPaperPresentatorFragment() {
         // Required empty public constructor
@@ -77,10 +82,17 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                if (newText.length() > 1)
-                    search();
-                else
-                    listView.setAdapter(null);
+                if (searchViewEnable) {
+                    if (newText.length() > 1) {
+                        search();
+                    }
+                }
+                else {
+                        listView.setAdapter(null);
+                        Toast.makeText(getActivity(), "Retriving data, ensure data connection.",Toast.LENGTH_LONG).show();
+                    }
+
+
                 return false;
             }
         });
@@ -102,24 +114,29 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
         //sqLiteDatabase = ((TrackYourPaperTabbed)getActivity()).sqLiteDatabase;
         editTextSearch = (SearchView)view.findViewById(R.id.editTextSearch);
-        editTextSearch.setIconified(true);
         editTextSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(searchViewEnable == false)
+                {
+                    Toast.makeText(getActivity(), "Retriving data, ensure data connection.",Toast.LENGTH_LONG).show();
+                }
                 editTextSearch.setIconified(!editTextSearch.isIconified());
             }
         });
+
         editTextSearch.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editTextSearch.setQueryHint("Enter author name or paper ID");
+                editTextSearch.setQueryHint("Author name, PID or Track");
             }
         });
-        int j = 0;
+        editTextSearch.setIconified(false);
         paper = new ArrayList<>();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Presenters");
         databaseReference.keepSynced(true);
+        searchViewEnable = false;
         editTextSearch.setEnabled(false);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -129,7 +146,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 {
                     paper.add(ds.getValue(Paper.class));
                 }
-                editTextSearch.setEnabled(true);
+                searchViewEnable = true;
             }
 
             @Override
@@ -147,26 +164,23 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         resultsTime = new ArrayList();
         resultsName = new ArrayList();
         resultsTitle = new ArrayList<>();
+        resultsSessionChairs = new ArrayList<>();
+
 
         //For Contact
         spinner=(Spinner)view.findViewById(R.id.spinner);
         categories=new ArrayList<String>();
         categories.add("Contact respective Incharges");
-        categories.add("Soft Computing and Artificial Intelligence");
-        categories.add("Data mining and information retrieval");
-        categories.add("Big data analytics");
-        categories.add("Operating system and compilers");
-        categories.add("Image processing /Signal processing");
-        categories.add("Computer graphics and visualization");
-        categories.add("Networking and cloud computing");
-        categories.add("Mobile and wireless communication/Networking");
-        categories.add("Parallel Computing");
-        categories.add("Information security / Cyber security");
-        categories.add("Video/virtual reality");
-        categories.add("Software Engineering and Architecture");
-        categories.add("Distributed computing");
-        categories.add("Others");
-        categories.add("Research Scholar(Ph.D)");
+        categories.add( "Image Processing and Computer Vision");
+        categories.add("Computer and Communication Security");
+        categories.add("Databases and Big Data");
+        categories.add("HPC, Cloud and Social Network Analysis");
+        categories.add("IOT and Computer Networks");
+        categories.add("Signal Processing and Applications");
+        categories.add("Digital Communication");
+        categories.add("VLSI and Embedded Systems");
+        categories.add("Control and Automation");
+        categories.add("Cognitive and Intelligent Systems");
         dataAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,categories);
         dataAdapter.setDropDownViewResource(R.layout.dropdown_newline);
         spinner.setAdapter(dataAdapter);
@@ -226,7 +240,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         displayResultList = new ArrayList<>();
         for(Paper p : paper)
         {
-            if(String.valueOf(p.getPid()).contains(idOrDomain.toLowerCase()) || p.getAuthor().toLowerCase().contains(idOrDomain.toLowerCase()))
+            if(String.valueOf(p.getPid()).contains(idOrDomain.toLowerCase()) || p.getAuthor().toLowerCase().contains(idOrDomain.toLowerCase()) || String.valueOf(p.getTrack()).contains(idOrDomain.toLowerCase()))
             {
                 resultsIds.add(String.valueOf(p.getPid()));
                 resultsDom.add(p.getTrack());
@@ -235,7 +249,15 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 resultsTime.add(p.getTime());
                 resultsName.add(p.getAuthor());
                 resultsTitle.add(p.getTitle());
-                displayResultList.add("Name : " + p.getAuthor() + "\nPaper Id : " + String.valueOf(p.getPid()) + "\nTrack : " + p.getTrack());
+                resultsSessionChairs.add(p.getSession_chairs());
+                SpannableString name, paperId, track;
+                name = new SpannableString("Name");
+                name.setSpan(new StyleSpan(Typeface.BOLD),0,"Name".length(),0);
+                paperId = new SpannableString("PaperID");
+                paperId.setSpan(new StyleSpan(Typeface.BOLD),0,"PaperID".length(),0);
+                track = new SpannableString("Track");
+                track.setSpan(new StyleSpan(Typeface.BOLD),0,"Track".length(),0);
+                displayResultList.add(name + " : " + p.getAuthor().substring(0,15) + "\n" + paperId + " : " + String.valueOf(p.getPid()) + "\n" + track + " : " + p.getTrack());
             }
         }
         displayFinalList();
@@ -262,7 +284,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         dialog.setContentView(R.layout.customdialog);
 
         dialog.setTitle("Details : ");
-        TextView textViewId,textViewDom,textViewDate,textViewVen,textViewTime,textViewName,textViewTitle;
+        TextView textViewId,textViewDom,textViewDate,textViewVen,textViewTime,textViewName,textViewTitle,textViewSessionChairs;
         Button btnOk;
         textViewDate = (TextView)dialog.findViewById(R.id.textViewDate);
         textViewDom = (TextView)dialog.findViewById(R.id.textViewDom);
@@ -271,11 +293,14 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         textViewTime = (TextView)dialog.findViewById(R.id.textViewTime);
         textViewName = (TextView)dialog.findViewById(R.id.textViewAuthorName);
         textViewTitle = (TextView)dialog.findViewById(R.id.textViewPaperTitle);
+        textViewSessionChairs = (TextView)dialog.findViewById(R.id.textViewSessionChair);
+
         textViewDate.append(" " + resultsDat.get(i));
         textViewDom.append(" " + resultsDom.get(i));
         textViewTime.append(" " + resultsTime.get(i));
         textViewVen.append(" " + resultsLoc.get(i));
         textViewId.append(" " + resultsIds.get(i));
+        textViewSessionChairs.append(" " + resultsSessionChairs.get(i));
         textViewName.append(" " + resultsName.get(i));
         textViewTitle.append(" " + resultsTitle.get(i));
         btnOk = (Button)dialog.findViewById(R.id.btnOkDialog);
@@ -335,75 +360,75 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
 
             case 1:
-                name="Prof Sonali Tidke";
-                phnum="tel:7798635345";
+                name="Dr. Pravin Futane";
+                phnum="tel:9823033342";
                 displayDialog1(item,phnum,name);
                 break;
 
             case 2:
-                name="Dr.Anuradha Thakre";
-                phnum="tel:9226094966";
+                name="Prof R S Kharat";
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 4:
-                name="Prof Sonal Gore";
-                phnum="tel:9226094968";
+                name="Dr. K Rajeswari";
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 3:
-                name="Prof Sushma Vispute";
-                phnum="tel:9226094972";
+                name="Mrs. Sonal Gore";
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 5:
-                name="Prof Harshada Mhaske";;
-                phnum="tel:9226094982";
+                name="Prof S Sambhare";;
+                phnum="tel:020-27653168";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 6:
-                name="Prof Shailaja Pede";
+                name="Mrs. Rajni";
                 phnum="tel:9226094971";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 7:
-                name="Prof Meghana Lokhande";
+                name="Dr. Kinage";
                 phnum="tel:9823334381";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 8:
-                name="Prof Atul Pawar";
+                name="Dr. Kolate";
                 phnum="tel:9226094984";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 9:
-                name="Prof B.Mahalakshmi";
+                name="Dr. V.N. Patil";
                 phnum="tel:9226094969";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 10:
-                name="Dr.Sonali Patil";
+                name="Dr.Swati Shinde";
                 phnum="tel:9226094990";
                 displayDialog1(item,phnum,name);
 
 
                 break;
-            case 11:
+          /*  case 11:
                 name="Prof Santvana Gudhade";
                 phnum="tel:8380095194";
                 displayDialog1(item,phnum,name);
@@ -438,7 +463,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
 
                 break;
-
+            */
         }
         handler = new Handler();
         handler.postDelayed(new Runnable() {

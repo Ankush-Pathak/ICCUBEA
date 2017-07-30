@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#006e64</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorPrimary">#00897b</color>
+    <color name="colorPrimaryDark">#005b4f</color>
+    <color name="colorAccent">#009688</color>
     <color name="colorDarkBlue">#009688</color>
     <color name="colorMainMenuBackground">#E0F2F1</color>
     <color name="colorFaintBlue">#40C4FF</color>
     <color name="colorBKBlue">#E3F2FB</color>
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorGray">#C3C3C3</color>
-
+    <color name="colorStar">#DAA520</color>
 </resources>

@@ -46,10 +46,9 @@
         android:layout_weight="1"/>
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/iccubea_start"
-        android:id="@+id/iccbea"
-        android:layout_weight="1"/>
+        android:layout_height="52dp"
+        android:src="@drawable/iccubea_logo"
+        android:id="@+id/iccbea" />
 <!--    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

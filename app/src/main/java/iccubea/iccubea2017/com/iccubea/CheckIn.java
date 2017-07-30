@@ -81,7 +81,7 @@ public class CheckIn extends AppCompatActivity implements AdapterView.OnItemSele
                 }
                 else if(item.getItemId() == R.id.navigation_button_Location)
                 {
-                    intent = new Intent(CheckIn.this,CheckIn.class);
+                    intent = new Intent(CheckIn.this,ActivityReachPCCOE.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);

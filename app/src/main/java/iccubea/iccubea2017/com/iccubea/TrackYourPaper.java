@@ -86,7 +86,7 @@ public class TrackYourPaper extends AppCompatActivity implements AdapterView.OnI
                 else if(item.getItemId() == R.id.navigation_button_Location)
                 {
                     //CheckIn checkIn = new CheckIn();
-                    intent = new Intent(TrackYourPaper.this,CheckIn.class);
+                    intent = new Intent(TrackYourPaper.this,ActivityReachPCCOE.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);

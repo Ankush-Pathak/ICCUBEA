@@ -2,14 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    tools:context="iccubea.iccubea2017.com.iccubea.AboutTabbed"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="iccubea.iccubea2017.com.iccubea.AboutTabbed">
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="455dp">
+        android:layout_height="match_parent"
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +28,9 @@
                 android:layout_alignRight="@+id/abt_pccoe_title"
                 android:adjustViewBounds="true"
                 android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
                 android:src="@drawable/pccoe" />
 
             <TextView
@@ -44,14 +50,6 @@
 
         </LinearLayout>
     </ScrollView>
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottomNavView_Bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation_main"
-        android:background="@drawable/white_gray_border"
-        android:layout_alignParentBottom="true"
-        />
 </RelativeLayout>
 
 
