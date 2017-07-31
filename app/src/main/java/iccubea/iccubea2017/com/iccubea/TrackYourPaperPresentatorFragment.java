@@ -60,7 +60,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
     Handler handler;
     TextView textview;
     View view;
-    ArrayList<Paper> paper;
+    ArrayList<Paper> paper, paperDisplay;
     boolean searchViewEnable;
 
     public TrackYourPaperPresentatorFragment() {
@@ -237,10 +237,19 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
             displayFinalList();
         }
         i = 0;*/
+
+        resultsDom = new ArrayList();
+        resultsIds = new ArrayList();
+        resultsLoc = new ArrayList();
+        resultsDat = new ArrayList();
+        resultsTime = new ArrayList();
+        resultsName = new ArrayList();
+        resultsTitle = new ArrayList<>();
+        resultsSessionChairs = new ArrayList<>();
         displayResultList = new ArrayList<>();
         for(Paper p : paper)
         {
-            if(String.valueOf(p.getPid()).contains(idOrDomain.toLowerCase()) || p.getAuthor().toLowerCase().contains(idOrDomain.toLowerCase()) || String.valueOf(p.getTrack()).contains(idOrDomain.toLowerCase()))
+            if(String.valueOf(p.getPid()).contains(idOrDomain.toLowerCase()) || p.getAuthor().toLowerCase().contains(idOrDomain.toLowerCase()) || p.getTrack().toLowerCase().contains(idOrDomain.toLowerCase()))
             {
                 resultsIds.add(String.valueOf(p.getPid()));
                 resultsDom.add(p.getTrack());
