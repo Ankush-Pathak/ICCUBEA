@@ -69,7 +69,7 @@ public class TrackYourPaperTabbed extends AppCompatActivity {
                 }
                 else if(item.getItemId() == R.id.navigation_button_Instruction)
                 {
-                    intent = new Intent(TrackYourPaperTabbed.this,Guidelines1.class);
+                    intent = new Intent(TrackYourPaperTabbed.this,GuidelinePresenter.class);
                     startActivity(intent);
                     finish();
                     overridePendingTransition(0,0);

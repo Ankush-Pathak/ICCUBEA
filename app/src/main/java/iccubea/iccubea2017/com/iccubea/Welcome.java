@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class Welcome extends AppCompatActivity {
     ImageView pccoe,ieee,iccubea;
-    TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7;
+    TextView tv1,tv2,tv3,tv4,tv5,tv6;
     Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class Welcome extends AppCompatActivity {
         //tv4=(TextView)findViewById(R.id.textView7);
         tv5=(TextView)findViewById(R.id.textView8);
         tv6=(TextView)findViewById(R.id.textView9);
-        tv7=(TextView)findViewById(R.id.textView10);
         btn.setBackgroundResource(R.drawable.next_first);
 
         Typeface tf= Typeface.createFromAsset(getAssets(), "Humanst521_Lt_BT_Light.ttf");
@@ -50,7 +49,6 @@ public class Welcome extends AppCompatActivity {
         //tv4.setAnimation(animation);
         tv5.setAnimation(animation);
         tv6.setAnimation(animation);
-        tv7.setAnimation(animation);
         //Toast.makeText(this,"Please tolerate a few bugs, app is currently in beta testing!",Toast.LENGTH_LONG).show();
 
         btn.setOnClickListener(new View.OnClickListener() {

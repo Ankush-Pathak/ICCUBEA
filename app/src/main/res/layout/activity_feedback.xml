@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
 
-                    android:text="Accomodation (If applicable)"
+                    android:text="Keynote topics and speeches"
                     android:textColor="@android:color/black"
                     android:textSize="17sp" />
 
@@ -110,7 +110,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
-                    android:text="Volunteer Assistance"
+                    android:text="Venue Arrangements"
                     android:textColor="@android:color/black"
                     android:textSize="17sp" />
 
@@ -129,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
-                    android:text="How likely is it that you would recommend the event to a friend or colleague?"
+                    android:text="Registration process and guidelines"
                     android:textColor="@android:color/black"
                     android:textSize="17sp" />
 
@@ -149,7 +149,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.08"
-                    android:text="How organised was the event?"
+                    android:text="Technical support"
                     android:textColor="@android:color/black"
                     android:textSize="17sp" />
 

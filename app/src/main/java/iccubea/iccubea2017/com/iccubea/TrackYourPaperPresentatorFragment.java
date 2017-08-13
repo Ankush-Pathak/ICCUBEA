@@ -86,6 +86,10 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                     if (newText.length() > 1) {
                         search();
                     }
+                    else
+                    {
+                        listView.setAdapter(null);
+                    }
                 }
                 else {
                         listView.setAdapter(null);
@@ -266,7 +270,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 paperId.setSpan(new StyleSpan(Typeface.BOLD),0,"PaperID".length(),0);
                 track = new SpannableString("Track");
                 track.setSpan(new StyleSpan(Typeface.BOLD),0,"Track".length(),0);
-                displayResultList.add(name + " : " + p.getAuthor().substring(0,15) + "\n" + paperId + " : " + String.valueOf(p.getPid()) + "\n" + track + " : " + p.getTrack());
+                displayResultList.add(name + " : " + p.getAuthor().substring(0,Math.min(15,p.getAuthor().length())) + "\n" + paperId + " : " + String.valueOf(p.getPid()) + "\n" + track + " : " + p.getTrack());
             }
         }
         displayFinalList();

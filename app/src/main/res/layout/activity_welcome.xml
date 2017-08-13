@@ -74,25 +74,16 @@
         android:layout_weight="1"/>
 
     <TextView
+        android:id="@+id/textView9"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Department of Computer Engineering"
-        android:id="@+id/textView9"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textSize="25sp"
-        android:layout_weight="1"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="PCCoE"
-        android:id="@+id/textView10"
         android:layout_centerHorizontal="true"
         android:layout_weight="1"
-        android:layout_gravity="center_horizontal" />
+        android:gravity="center"
+        android:text="Pimpri Chinchwad College of Engineering"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

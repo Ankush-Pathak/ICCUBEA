@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
        //  btnMoveUp = (Button) findViewById(R.id.);
        // btnMoveUp.setText("^");
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
-        dateTime = new DateTime(2017, 7, 29,20, 51);
+        dateTime = new DateTime(2017, 8, 14,00, 30);
         dateTimeNow = DateTime.now();
         circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
         circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
@@ -326,7 +326,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     periodHrs = new Period(dateTimeNow, dateTime);
                     periodMin = new Period(dateTimeNow, dateTime);
                     periodDays = new Period(dateTimeNow, dateTime);
-                    if(periodSec.getSeconds() == 0)
+                    if(periodSec.getSeconds() == 0 && periodDays.getDays() == 0 && periodHrs.getHours() == 0)
                     {
                         circleProgressViewSec.setValue(0);
                         countDownTimerSec.cancel();
