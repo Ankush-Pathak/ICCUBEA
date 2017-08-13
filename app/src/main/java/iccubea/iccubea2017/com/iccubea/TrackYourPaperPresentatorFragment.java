@@ -380,63 +380,63 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
             case 2:
                 name="Prof R S Kharat";
-                phnum="tel:020-27653168";
+                phnum="tel:9226094967";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 4:
                 name="Dr. K Rajeswari";
-                phnum="tel:020-27653168";
+                phnum="tel:9226094965";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 3:
-                name="Mrs. Sonal Gore";
-                phnum="tel:020-27653168";
+                name="Dr. N Uke";
+                phnum="tel:9850035805";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 5:
                 name="Prof S Sambhare";;
-                phnum="tel:020-27653168";
+                phnum="tel:9226094964";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 6:
                 name="Mrs. Rajni";
-                phnum="tel:9226094971";
+                phnum="tel:9226094917";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 7:
                 name="Dr. Kinage";
-                phnum="tel:9823334381";
+                phnum="tel:9552969900";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 8:
                 name="Dr. Kolate";
-                phnum="tel:9226094984";
+                phnum="tel:9860446160";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 9:
                 name="Dr. V.N. Patil";
-                phnum="tel:9226094969";
+                phnum="tel:9822431147";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 10:
                 name="Dr.Swati Shinde";
-                phnum="tel:9226094990";
+                phnum="tel:9226095012";
                 displayDialog1(item,phnum,name);
 
 
