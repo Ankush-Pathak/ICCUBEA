@@ -148,21 +148,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updateSeconds();
        // btnMoveUp.setOnClickListener(MainActivity.this);
 //        btnMoveUp.setOnClickListener(MainActivity.this);
-        if(getIntent().getExtras()!=null)
+        /*if(getIntent().getExtras()!=null)
         {
             final Bundle bundle = getIntent().getExtras();
             i=bundle.getInt("key");
             if(i==1)
                 moveButton();
-        }
+        }*/
         //sharedPreferences=getSharedPreferences("home", MODE_PRIVATE);
     }
 
 
     void initialise() {
         System.gc();
-        fragment = new BlankFragment();
-        fragmentManager = getSupportFragmentManager();
+        //fragment = new BlankFragment();
+        //fragmentManager = getSupportFragmentManager();
 
         typeface = Typeface.createFromAsset(getAssets(), "AGENCYR.TTF");
         height = this.getResources().getDisplayMetrics().heightPixels;
@@ -292,11 +292,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    void moveButton() {
+    /*void moveButton() {
         btnMoveUp.setVisibility(View.INVISIBLE);
         fragmentManager.beginTransaction().replace(R.id.mainactivity_fragment,fragment).commit();
         flag=1;
-    }
+    }*/
 
 
 
@@ -309,10 +309,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         circleProgressViewSec.setMaxValue(60);
         //circleProgressViewSec.setValueAnimated(100);
         //circleProgressViewSec.setText(String.valueOf(period.getDays()));
-        circleProgressViewSec.setTextSize(spinnerTextSize);
+        //circleProgressViewSec.setTextSize(spinnerTextSize);
         circleProgressViewSec.setShowTextWhileSpinning(false);
         circleProgressViewSec.setTextMode(TextMode.TEXT);
-        circleProgressViewSec.setTextTypeface(typeface);
+        //circleProgressViewSec.setTextTypeface(typeface);
         circleProgressViewSec.setContourSize(contourSize);
         circleProgressViewSec.setRimWidth(0);
         circleProgressViewSec.setBarWidth(spinnerBarWidth);
@@ -357,15 +357,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
 
                     }
+                    if(periodSec.getSeconds() == 60 || periodSec.getSeconds() == 59)
+                    {
+                        String text=String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + " Days : "
+                                +String.valueOf(periodHrs.getHours()) + " Hrs : "
+                                +String.valueOf(periodMin.getMinutes()) + " Min : "
+                                +String.valueOf(periodSec.getSeconds()) + " Sec";
+                        circleProgressViewSec.setText(text);
+                        circleProgressViewSec.setValue(periodSec.getSeconds());
+                    }
+                    else {
 
 
-
-                    String text=String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + " Days : "
-                            +String.valueOf(periodHrs.getHours()) + " Hrs : "
-                            +String.valueOf(periodMin.getMinutes()) + " Min : "
-                            +String.valueOf(periodSec.getSeconds()) + " Sec";
-                    circleProgressViewSec.setText(text);
-                    circleProgressViewSec.setValueAnimated(periodSec.getSeconds());
+                        String text = String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + " Days : "
+                                + String.valueOf(periodHrs.getHours()) + " Hrs : "
+                                + String.valueOf(periodMin.getMinutes()) + " Min : "
+                                + String.valueOf(periodSec.getSeconds()) + " Sec";
+                        circleProgressViewSec.setText(text);
+                        circleProgressViewSec.setValueAnimated(periodSec.getSeconds());
+                    }
                     //if (periodSec.getSeconds() == 59) {
                         //circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
 
@@ -581,7 +591,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //Toast.makeText(this, "In btnMoveUp", Toast.LENGTH_LONG).show();
                 if (btnMoveUp.getText() == "^") {
-                    moveButton();
+                    //moveButton();
                     btnMoveUp.setVisibility(View.INVISIBLE);
                     break;
                 }

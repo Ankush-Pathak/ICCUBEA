@@ -50,10 +50,21 @@
         android:id="@+id/bottomNavView_Bar"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_height="match_parent"
-        android:layout_weight="7.2"
+        android:layout_height="wrap_content"
         android:elevation="1dp"
         app:itemBackground="@drawable/white_gray_border"
-        app:menu="@menu/bottom_navigation_main" />
+        app:menu="@menu/bottom_navigation_main"
+        android:background="@drawable/white_gray_border"/>
+    <!--<android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavView_Bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_navigation_main"
+        app:itemIconTint="#727272"
+        app:itemTextColor="#727272"
+        app:elevation="1dp"
+        android:background="@drawable/white_gray_border"
+        android:layout_alignParentBottom="true"/>-->
+
 
 </LinearLayout>

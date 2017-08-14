@@ -88,10 +88,10 @@
         android:layout_weight="1"/>
 
     <ImageView
+        android:id="@+id/iccbea"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:src="@drawable/iccubea"
-        android:id="@+id/iccbea" />
+        android:layout_height="65dp"
+        android:src="@drawable/iccubea" />
 <!--    <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

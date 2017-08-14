@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
-        app:cpv_textSize="6sp" />
+        app:cpv_textSize="20sp" />
 
 
 
@@ -127,12 +127,12 @@
         android:text="Countdown for ICCUBEA 2017"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="35sp" />
-    <FrameLayout
+    <!--<FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/mainactivity_fragment">
 
-    </FrameLayout>
+    </FrameLayout>-->
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottomNavView_Bar"
         android:layout_width="match_parent"

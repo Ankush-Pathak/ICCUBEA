@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_weight="11"
+        android:layout_weight="11.5"
         android:gravity="center_horizontal"
         android:text="Reporting Area"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -23,7 +23,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="11"
+        android:layout_weight="11.5"
         android:text="Registration time : 8:00 am to 8:45 am accompanied by breakfast."
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#f21212"
@@ -36,7 +36,7 @@
         android:layout_alignParentEnd="false"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_weight="4.5"
+        android:layout_weight="5"
         android:adjustViewBounds="true"
         android:src="@drawable/checkin_map" />
 
@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="12" />
+        android:layout_weight="12.5" />
 
 
 </LinearLayout>
