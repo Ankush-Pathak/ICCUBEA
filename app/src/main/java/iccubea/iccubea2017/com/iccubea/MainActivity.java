@@ -51,7 +51,7 @@ import at.grabner.circleprogress.CircleProgressView;
 import at.grabner.circleprogress.TextMode;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
     int flag=0,frag_flag = 1;
     RelativeLayout relativeLayout;
     BlankFragment fragment;
@@ -583,7 +583,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    @Override
+    /*@Override
     public void onClick(View view) {
         Intent intent;
         switch (view.getId()) {
@@ -599,7 +599,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-    }
+    }*/
 
     void showScheduleDialog()
     {

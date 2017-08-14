@@ -17,7 +17,7 @@ public class About extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-
+/*
         btnPccoe = (Button)findViewById(R.id.btnPccoe);
         btnCpgcon = (Button)findViewById(R.id.btnCpgcon);
         btnDepatment = (Button)findViewById(R.id.btnDepartment);
@@ -110,7 +110,7 @@ public class About extends AppCompatActivity {
                                           return false;
                                       }
                                   }
-        );
+        );*/
     }
 
     @Override

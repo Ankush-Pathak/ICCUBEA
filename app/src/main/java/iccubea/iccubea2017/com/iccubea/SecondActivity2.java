@@ -12,7 +12,7 @@ public class SecondActivity2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.gc();
+        /*System.gc();
         setContentView(R.layout.activity_second2);
         ImageView img=(ImageView)findViewById(R.id.imageView);
         //img.setMaxHeight();
@@ -24,7 +24,7 @@ public class SecondActivity2 extends AppCompatActivity {
         //for content
         Typeface tf2= Typeface.createFromAsset(getAssets(),"Museo100-Regular.otf");
         TextView tv2=(TextView)findViewById(R.id.infoCpgcon);
-        tv2.setTypeface(tf2);
+        tv2.setTypeface(tf2);*/
 
     }
     @Override

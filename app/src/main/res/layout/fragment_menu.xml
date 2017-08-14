@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     tools:context="iccubea.iccubea2017.com.iccubea.BlankFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+ <!--   &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,5 +108,5 @@
             android:layout_marginTop="-5dp" />
     </LinearLayout>
 
-
+-->
 </FrameLayout>

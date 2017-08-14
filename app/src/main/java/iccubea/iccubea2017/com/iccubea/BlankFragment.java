@@ -36,7 +36,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener,View
 
     void initialise()
     {
-        btnMoveDown = (Button)view.findViewById(R.id.btnMoveDown);
+        /*btnMoveDown = (Button)view.findViewById(R.id.btnMoveDown);
         btnTrackPaper = (Button) view.findViewById(R.id.btnTrackPaper);
         btnCheckIn = (Button) view.findViewById(R.id.btnCheckIn);
         btnCmtLogin = (Button) view.findViewById(R.id.btnCmtLogin);
@@ -57,11 +57,11 @@ public class BlankFragment extends Fragment implements View.OnClickListener,View
         btnHowToReach.setOnTouchListener(this);
         btnTrackPaper.setOnTouchListener(this);
         btnMoveDown.setOnClickListener(this);
-        btnMoveDown.setVisibility(View.INVISIBLE);
+        btnMoveDown.setVisibility(View.INVISIBLE);*/
 
     }
     public void onClick(View view) {
-        Intent intent;
+        /*Intent intent;
 
         switch (view.getId()) {
 
@@ -69,7 +69,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener,View
                 ((MainActivity)getActivity()).removeFragment();
                 //getActivity().finish();
                 //Toast.makeText(getActivity(),"In btnMoveDown",Toast.LENGTH_LONG).show();
-                break;*/
+                break;*//*
 
             case R.id.btnTrackPaper:
                 btnTrackPaper.setBackgroundResource(R.drawable.trackpaper_animate);
@@ -114,13 +114,13 @@ public class BlankFragment extends Fragment implements View.OnClickListener,View
 
                 getActivity().finish();
             }
-        }, 1800);
+        }, 1800);*/
 
     }
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
-        switch (view.getId()) {
+        /*switch (view.getId()) {
 
             case R.id.btnTrackPaper:
 
@@ -164,7 +164,7 @@ public class BlankFragment extends Fragment implements View.OnClickListener,View
                 else if (motionEvent.getAction() == MotionEvent.ACTION_UP)
                     btnAbout.setBackgroundResource(R.drawable.about);
                 break;
-        }
+        }*/
 
         return false;
     }

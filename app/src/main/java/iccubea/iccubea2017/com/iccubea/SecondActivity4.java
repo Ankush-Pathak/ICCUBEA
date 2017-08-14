@@ -11,7 +11,7 @@ public class SecondActivity4 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        System.gc();
+        /*System.gc();
         setContentView(R.layout.activity_second4);
         //for title
         Typeface tf= Typeface.createFromAsset(getAssets(),"Museo300-Regular.otf");
@@ -21,7 +21,7 @@ public class SecondActivity4 extends AppCompatActivity {
         //for content
         Typeface tf2=Typeface.createFromAsset(getAssets(),"Museo100-Regular.otf");
         TextView tv2=(TextView)findViewById(R.id.infoAcm);
-        tv2.setTypeface(tf2);
+        tv2.setTypeface(tf2);*/
     }
     @Override
     public void onBackPressed(){

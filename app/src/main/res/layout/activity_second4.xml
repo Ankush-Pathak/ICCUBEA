@@ -7,6 +7,7 @@
     tools:context=".SecondActivity4"
     android:gravity="center_horizontal"
     android:orientation="vertical">
+<!--
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -63,6 +64,7 @@
 
         </LinearLayout>
     </ScrollView>
+-->
 
 
 
