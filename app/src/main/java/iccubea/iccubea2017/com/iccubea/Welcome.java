@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class Welcome extends AppCompatActivity {
     ImageView pccoe,ieee,iccubea;
-    TextView tv1,tv2,tv3,tv4,tv5,tv6;
+    TextView tv1,tv2,tv3,tv4,tv5,tv6,tv7;
     Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,10 @@ public class Welcome extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_welcome);
         pccoe=(ImageView)findViewById(R.id.pccoe);
-        ieee=(ImageView)findViewById(R.id.ieee);
+        //ieee=(ImageView)findViewById(R.id.ieee);
         iccubea=(ImageView)findViewById(R.id.iccbea);
         btn = (Button)findViewById(R.id.btnWelcome);
-        tv1=(TextView)findViewById(R.id.textView4);
+        tv7=(TextView)findViewById(R.id.textView7);
         tv2=(TextView)findViewById(R.id.textView5);
         tv3=(TextView)findViewById(R.id.textView6);
         //tv4=(TextView)findViewById(R.id.textView7);
@@ -34,16 +34,16 @@ public class Welcome extends AppCompatActivity {
         btn.setBackgroundResource(R.drawable.next_first);
 
         Typeface tf= Typeface.createFromAsset(getAssets(), "Humanst521_Lt_BT_Light.ttf");
-        tv1.setTypeface(tf);
+        //tv1.setTypeface(tf);
         //tv4.setTypeface(tf);
         Animation animation = AnimationUtils.loadAnimation(Welcome.this,android.R.anim.fade_in);
         animation.setDuration(5000);
 
 
-        ieee.startAnimation(animation);
+        //ieee.startAnimation(animation);
         pccoe.startAnimation(animation);
         iccubea.startAnimation(animation);
-        tv1.setAnimation(animation);
+        tv7.setAnimation(animation);
         tv2.setAnimation(animation);
         tv3.setAnimation(animation);
         //tv4.setAnimation(animation);

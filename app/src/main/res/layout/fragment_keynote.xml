@@ -46,6 +46,15 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Cheif guest : Prof. Dr. Nitin Karmalkar"
+                            android:textSize="20sp" />
+
+                        <TextView
                             android:id="@+id/textView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -80,14 +89,7 @@
                             android:text="Venue : Seminar Hall, 4th floor Academic Building"
                             android:textSize="20sp" />
 
-                        <TextView
-                            android:id="@+id/textView15"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Cheif guest : Prof. Dr. Nitin Karmalkar"
-                            android:textSize="20sp" />
+
                     </LinearLayout>
 
                 </FrameLayout>
@@ -413,6 +415,107 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="7dp"
                             android:text="Keynote 3"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tap here to know more"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.ramotion.foldingcell.FoldingCell>
+
+            <com.ramotion.foldingcell.FoldingCell
+                android:id="@+id/folding_cellKeynote4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                folding-cell:cameraHeight="40">
+
+                <FrameLayout
+                    android:id="@+id/cell_content_view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_border"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewKeynote4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="7dp"
+                            android:text="Valedictory"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/textViewKeynote4Speaker"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Speaker : Dr.Aditya Abhyankar"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:id="@+id/textViewKeynote4Date"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Date : 18 Aug, 2017"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewKeynote4Time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Time : 3:30 PM"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewKeynote4Venue"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Venue : Seminar Hall, 4th floor Academic Building"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+                ​
+
+                <FrameLayout
+                    android:id="@+id/cell_title_view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_plate_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewKeynote4FoldedTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Valedictory"
                             android:textColor="@color/white"
                             android:textSize="24sp" />
 

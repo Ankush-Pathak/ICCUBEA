@@ -16,7 +16,7 @@ import android.widget.TextView;
  */
 public class BlankFragment1 extends Fragment {
 
-    TextView tv100,tv101,tv102,tv103,tv104,tv105;//tv106,tv107,tv108,tv109,tv110,tv111,tv113;
+    TextView tv100,tv101,tv102,tv103,tv104,tv105,tv106,tv107,tv108,tv109,tv110;//tv106,tv107,tv108,tv109,tv110,tv111,tv113;
     public BlankFragment1() {
         // Required empty public constructor
     }
@@ -32,6 +32,11 @@ public class BlankFragment1 extends Fragment {
         tv103 = (TextView)view.findViewById(R.id.textView103);
         tv104 = (TextView)view.findViewById(R.id.textView104);
         tv105 = (TextView)view.findViewById(R.id.textView105);
+        tv106 = (TextView)view.findViewById(R.id.textView106);
+        tv107 = (TextView)view.findViewById(R.id.textView107);
+        tv108 = (TextView)view.findViewById(R.id.textView108);
+        tv109 = (TextView)view.findViewById(R.id.textView109);
+        tv110 = (TextView)view.findViewById(R.id.textView110);
 
         //just for test
 /*        tv106 = (TextView)view.findViewById(R.id.textView106);
@@ -55,6 +60,11 @@ public class BlankFragment1 extends Fragment {
         tv103.setTypeface(tf1);
         tv104.setTypeface(tf1);
         tv105.setTypeface(tf1);
+        tv106.setTypeface(tf1);
+        tv107.setTypeface(tf1);
+        tv108.setTypeface(tf1);
+        tv109.setTypeface(tf1);
+        tv110.setTypeface(tf1);
 
 /*        tv106.setTypeface(tf1);
 >>>>>>> 9717e8cfade27ad0e7eb9422175da76dc89b9b06

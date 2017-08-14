@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Each oral presentation is allocated roughly 15 minutes. This includes 10-12 minutes for presentation and 3-5 minutes for questions and discussions."
+                android:text="Each oral presentation is allocated roughly 15 minutes. This includes 10-11 minutes for presentation and 3-4 minutes for questions and discussions."
                 android:id="@+id/textView101"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -68,53 +68,136 @@
                 android:layout_marginRight="5dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="LCD projector, desktop (Ubuntu 64 bit Machine) will be provided at the session venue."
                 android:id="@+id/textView103"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:textSize="20sp"
-                android:textColor="#242222"
-                android:background="@drawable/card_background"
-                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:linksClickable="false"
+                android:layout_marginTop="5dp"
                 android:autoLink="web"
+                android:background="@drawable/card_background"
+                android:linksClickable="false"
+                android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp" />
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="LCD projector, desktop (Ubuntu 64 bit Machine) will be provided at the session venue."
+                android:textColor="#242222"
+                android:textSize="20sp" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Presentation should be handed over at the time of registration."
                 android:id="@+id/textView104"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:textSize="20sp"
-                android:textColor="#242222"
-                android:background="@drawable/card_background"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="It is recommended to bring the PDF files of presentation in a USB drive and also test the presentation materials, in advance of the session to ensure compatibility."
-                android:id="@+id/textView105"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:textSize="20sp"
-                android:textColor="#242222"
-                android:background="@drawable/card_background"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/card_background"
+                android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp" />
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="Presentation should be handed over at respective session location immediately after the registration is done (in between 8.00 AM to 8.45 AM)"
+                android:textColor="#242222"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView105"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/card_background"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="It is recommended to bring the PDF files of presentation in a USB drive and also test the presentation materials, in advance of the session to ensure compatibility. (arrive at session venue (class room) at least 15-20 minutes prior to start the session to test the presentation)"
+                android:textColor="#242222"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView106"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/card_background"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="The certificates to all the authors will be awarded in respective tracks strictly in last session of the Day for 17th August 2017 and in the Valedictory Function for 18th August 2017."
+                android:textColor="#242222"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView107"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/card_background"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="The attendance of Authors for Inauguration Function and Key Note addresses (respective days) is must. Authors are requested to attend all the sessions of the respective track for the day."
+                android:textColor="#242222"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView108"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/card_background"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text='Per session "A Best Paper Award" will be given to presenting registered authors.'
+                android:textColor="#242222"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView109"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/card_background"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text='For 17th August 2017, all "best paper award" trophies will be conferred in last session (3.15 to.5.30) on same Day.'
+                android:textColor="#242222"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView110"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/card_background"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text='For 18th August 2017, all "best paper award" trophies will be conferred in Valedictory Function at 3.30 pm.'
+                android:textColor="#242222"
+                android:textSize="20sp" />
             <!--<TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -174,10 +174,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
         dateTime = new DateTime(2017, 8, 17,10, 30);
         dateTimeNow = DateTime.now();
-        circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
-        circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
-        circleProgressViewMin.setVisibility(View.INVISIBLE);
-        circleProgressViewHrs.setVisibility(View.INVISIBLE);
+        //circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
+        //circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
+        //circleProgressViewMin.setVisibility(View.INVISIBLE);
+        //circleProgressViewHrs.setVisibility(View.INVISIBLE);
        // circleProgressViewDays = (CircleProgressView) findViewById(R.id.circularProgressDays);
         circleProgressViewSec.setTextTypeface(typeface);
 //        circleProgressViewMin.setTextTypeface(typeface);
@@ -366,7 +366,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             +String.valueOf(periodSec.getSeconds()) + " Sec";
                     circleProgressViewSec.setText(text);
                     circleProgressViewSec.setValueAnimated(periodSec.getSeconds());
-                    if (periodSec.getSeconds() == 59) {
+                    //if (periodSec.getSeconds() == 59) {
                         //circleProgressViewHrs.setText(String.valueOf(periodHrs.getHours()) + "hrs");
 
                        // circleProgressViewHrs.setValueAnimated(periodHrs.getHours());
@@ -374,7 +374,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         //circleProgressViewMin.setValueAnimated(periodMin.getMinutes());
                         //circleProgressViewDays.setText(String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + "days");
                        // circleProgressViewDays.setValueAnimated(Days.daysBetween(dateTimeNow, dateTime).getDays());
-                    }
+                   // }
                 }
 
                 @Override

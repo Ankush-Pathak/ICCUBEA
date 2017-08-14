@@ -66,7 +66,7 @@ public class ProceedingsActivity extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference().child("Proceedings");
         databaseReference.keepSynced(true);
         Log.d("Firebase",databaseReference.toString());
-        searchViewProceeding.setQueryHint("Enter paper title");
+        searchViewProceeding.setQueryHint("Enter track");
         searchViewProceeding.setIconified(false);
         searchViewProceeding.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,7 +116,10 @@ public class ProceedingsActivity extends AppCompatActivity {
         listViewProceeding.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                showProceedingDialog(position);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(proceedingArrayList.get(position).getLink()));
+                startActivity(intent);
+                //showProceedingDialog(position);
             }
         });
     }
@@ -131,7 +134,7 @@ public class ProceedingsActivity extends AppCompatActivity {
             if(p.getPaperTitle().toLowerCase().contains(s.toLowerCase()) && p.getDomain().toLowerCase().contains(domainSelected.toLowerCase()))
             {
                 proceedingArrayList.add(p);
-                displayResultList.add("Title : " + p.getPaperTitle());//+ "\nTrack : " + p.getDomain());
+                displayResultList.add("Track : " + p.getPaperTitle());//+ "\nTrack : " + p.getDomain());
             }
         }
         setAdapter();
