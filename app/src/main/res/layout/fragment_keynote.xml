@@ -7,7 +7,7 @@
     android:clipChildren="false"
     android:clipToPadding="false"
     android:background="@color/white"
-    tools:context="iccubea.iccubea2017.com.iccubea.KeynoteFragment">
+    tools:context=".KeynoteFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -51,7 +51,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Cheif guest : Prof. Dr. Nitin Karmalkar"
+                            android:text="Cheif guest : Prof. Dr. Nitin Karmalkar \n(Vice Chancellor, SPPU)"
                             android:textSize="20sp" />
 
                         <TextView
@@ -162,7 +162,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr. Deepak Shikarpur"
+                            android:text="Speaker : Dr. Deepak Shikarpur \n(Distinguished author)"
                             android:textSize="20sp" />
 
                         <TextView
@@ -262,7 +262,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr. Padmaja Joshi"
+                            android:text="Speaker : Dr. Padmaja Joshi \n(Joint Director, CDAC)"
                             android:textSize="20sp" />
 
 
@@ -281,7 +281,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 12:05 AM"
+                            android:text="Time : 12:05 PM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -363,7 +363,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr.A. M. Fulambarkar"
+                            android:text="Speaker : Dr.A. M. Fulambarkar \n(Eminent Academician)"
                             android:textSize="20sp" />
 
 
@@ -464,7 +464,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr.Aditya Abhyankar"
+                            android:text="Speaker : Dr.Aditya Abhyankar \n(Dean, Department of Technology, SPPU)"
                             android:textSize="20sp" />
 
 

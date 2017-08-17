@@ -6,9 +6,9 @@ android {
     defaultConfig {
         applicationId "iccubea.iccubea2017.com.iccubea"
         minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 16
+        versionCode 2
+        versionName '1.1'
         multiDexEnabled true
     }
     dexOptions {
@@ -20,12 +20,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
+    productFlavors {
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.android.support:appcompat-v7:25.2.0'
     compile 'com.github.jakob-grabner:Circle-Progress-View:v1.2.6'
