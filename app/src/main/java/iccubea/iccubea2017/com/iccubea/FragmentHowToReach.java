@@ -1,9 +1,6 @@
 package iccubea.iccubea2017.com.iccubea;
 
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,10 +20,9 @@ import java.util.ArrayList;
 
 public class FragmentHowToReach extends Fragment {
 
-    private GoogleMap mMap;
    // TrackGPS trackGPS;
     ArrayList markerPoints= new ArrayList();
-
+    private GoogleMap mMap;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +55,7 @@ public class FragmentHowToReach extends Fragment {
 
                     LatLng iccubea2017 = new LatLng(18.651371, 73.761701);
 
-                    Marker marker = mMap.addMarker(new MarkerOptions().position(iccubea2017).title("ICCUBEA 2017"));
+                    Marker marker = mMap.addMarker(new MarkerOptions().position(iccubea2017).title("ICCUBEA 2018"));
                     marker.showInfoWindow();
                     float zoomLevel = 16.0f;
 

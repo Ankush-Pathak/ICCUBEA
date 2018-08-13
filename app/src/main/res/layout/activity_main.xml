@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayoutMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="iccubea.iccubea2017.com.iccubea.MainActivity"
-    android:orientation="vertical"
-    android:id="@+id/relativeLayoutMain"
+    android:layout_gravity="center"
     android:background="@color/colorBackground"
-    android:layout_gravity="center">
+    android:orientation="vertical"
+    tools:context="iccubea.iccubea2017.com.iccubea.MainActivity">
 
     <Button
         android:id="@+id/buttonMainAcitivitProceeding"
@@ -124,7 +124,7 @@
         android:layout_marginTop="10dp"
         android:foregroundGravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:text="Countdown for ICCUBEA 2017"
+        android:text="Countdown for ICCUBEA 2018"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="35sp" />
     <!--<FrameLayout
@@ -137,12 +137,12 @@
         android:id="@+id/bottomNavView_Bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation_main"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/white_gray_border"
+        app:elevation="1dp"
         app:itemIconTint="#727272"
         app:itemTextColor="#727272"
-        app:elevation="1dp"
-        android:background="@drawable/white_gray_border"
-        android:layout_alignParentBottom="true"/>
+        app:menu="@menu/bottom_navigation_main" />
 
 
 </RelativeLayout>

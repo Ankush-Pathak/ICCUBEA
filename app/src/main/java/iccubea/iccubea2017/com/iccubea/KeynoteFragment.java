@@ -1,7 +1,5 @@
 package iccubea.iccubea2017.com.iccubea;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,7 +11,7 @@ import com.ramotion.foldingcell.FoldingCell;
 
 public class KeynoteFragment extends Fragment {
 
-    FoldingCell fcInauguration, fcKeynote1, fcKeynote2, fcKeynote3, fcKeynote4;
+    FoldingCell fcInauguration, fcKeynote1, fcKeynote2, fcKeynote3, fcKeynote4, fcKeynote5;
     public KeynoteFragment() {
         // Required empty public constructor
     }
@@ -64,6 +62,15 @@ public class KeynoteFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 fcKeynote4.toggle(false);
+            }
+        });
+
+        fcKeynote5 = (FoldingCell) view.findViewById(R.id.folding_cellKeynote5);
+        // attach click listener to folding cell
+        fcKeynote5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fcKeynote5.toggle(false);
             }
         });
         return view;

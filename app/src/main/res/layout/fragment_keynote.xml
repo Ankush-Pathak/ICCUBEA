@@ -1,12 +1,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:background="@color/white"
     android:clipChildren="false"
     android:clipToPadding="false"
-    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".KeynoteFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -19,9 +19,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
-
+            android:background="@color/white"
+            android:orientation="vertical">
 
 
             <com.ramotion.foldingcell.FoldingCell
@@ -29,9 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                folding-cell:cameraHeight="40"
-                folding-cell:additionalFlipsCount="2"
-                folding-cell:animationDuration="1500">
+                folding-cell:animationDuration="1500"
+                folding-cell:cameraHeight="40">
 
                 <FrameLayout
                     android:id="@+id/cell_content_view"
@@ -51,7 +49,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Cheif guest : Prof. Dr. Nitin Karmalkar \n(Vice Chancellor, SPPU)"
+                            android:text="Cheif guest : Prof. Dr. E Balagurusamy \nME(Hons) PhD DEd FIE FIETE CEng\nFormerly Vice Chancellor, Anna University, Chennai\nIT Adviser, Government of Andhra Pradesh\nMember, Planning Commission, Tamil Nadu\nMember, Union Public Service Commission, New Delhi\nChairman, Consortium for Educational Communications\n"
                             android:textSize="20sp" />
 
                         <TextView
@@ -68,7 +66,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : August 17, 2017"
+                            android:text="Date : August 17, 2018"
                             android:textSize="20sp" />
 
                         <TextView
@@ -77,7 +75,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 10:30 AM"
+                            android:text="Time : 10:00 AM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -86,7 +84,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : Seminar Hall, 4th floor Academic Building"
+                            android:text="Venue : New Auditorium Hall, Architecture building"
                             android:textSize="20sp" />
 
 
@@ -120,8 +118,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="7dp"
-                            android:textColor="@color/white"
                             android:text="Tap here to know more"
+                            android:textColor="@color/white"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -162,7 +160,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr. Deepak Shikarpur \n(Distinguished author)"
+                            android:text="Speaker : Mr. Milind Kulkarni \nScientist-G and Associate Head, Nano Mission and National Supercomputing Mission, Department of Science and Technology, New Delhi"
                             android:textSize="20sp" />
 
                         <TextView
@@ -171,7 +169,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : 17 Aug, 2017"
+                            android:text="Date : 17 Aug, 2018"
                             android:textSize="20sp" />
 
                         <TextView
@@ -180,7 +178,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 11:25 AM"
+                            android:text="Time : 11:30 AM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -189,7 +187,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : Seminar Hall, 4th floor Academic Building"
+                            android:text="Venue : New Auditorium Hall, Architecture building"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -262,7 +260,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr. Padmaja Joshi \n(Joint Director, CDAC)"
+                            android:text="Speaker : Mr. Dinanath Kholkar \nVice President, Global Head of Analytics and Insights, TCS\nChairman, IEEE Pune Section"
                             android:textSize="20sp" />
 
 
@@ -272,7 +270,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : 17 Aug, 2017"
+                            android:text="Date : 17 Aug, 2018"
                             android:textSize="20sp" />
 
                         <TextView
@@ -354,7 +352,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="7dp"
-                            android:text="Keynote 3"
+                            android:text="Tutorial Session 1"
                             android:textSize="22sp" />
 
                         <TextView
@@ -363,7 +361,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr.A. M. Fulambarkar \n(Eminent Academician)"
+                            android:text="Speaker : Mrs. Rashmi Tambe \nTEDx Speaker ,Practice Head – Business and Experience Transformation"
                             android:textSize="20sp" />
 
 
@@ -373,7 +371,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : 18 Aug, 2017"
+                            android:text="Date : 16 Aug, 2018"
                             android:textSize="20sp" />
 
                         <TextView
@@ -382,7 +380,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 10:40 AM"
+                            android:text="Time : 10:00 AM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -391,7 +389,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : Seminar Hall, 4th floor Academic Building"
+                            android:text="Venue : LRDC Hall, Mechanical Building"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -414,7 +412,108 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="7dp"
-                            android:text="Keynote 3"
+                            android:text="Tutorial Session 1"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tap here to know more"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.ramotion.foldingcell.FoldingCell>
+
+            <com.ramotion.foldingcell.FoldingCell
+                android:id="@+id/folding_cellKeynote5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                folding-cell:cameraHeight="40">
+
+                <FrameLayout
+                    android:id="@+id/cell_content_view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_border"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewKeynote5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="7dp"
+                            android:text="Tutorial Session 2"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/textViewKeynote5Speaker"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Speaker : Dr. S. E. Talole \nDean (Technology),Professor, Scientist 'G' (DRDO)"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:id="@+id/textViewKeynote5Date"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Date : 16 Aug, 2018"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewKeynote5Time"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Time : 10:00 AM"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewKeynote5Venue"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Venue : LRDC Hall, Mechanical Building"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+                ​
+
+                <FrameLayout
+                    android:id="@+id/cell_title_view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_plate_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewKeynote5FoldedTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tutorial Session 2"
                             android:textColor="@color/white"
                             android:textSize="24sp" />
 
@@ -464,7 +563,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr.Aditya Abhyankar \n(Dean, Department of Technology, SPPU)"
+                            android:text="Speaker : Dr. Aniruddha Joshi \nFounder and CEO, Atreya Innovations, Pune"
                             android:textSize="20sp" />
 
 
@@ -474,7 +573,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : 18 Aug, 2017"
+                            android:text="Date : 18 Aug, 2018"
                             android:textSize="20sp" />
 
                         <TextView
@@ -483,7 +582,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 3:30 PM"
+                            android:text="Time : 4:00 PM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -492,7 +591,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : Seminar Hall, 4th floor Academic Building"
+                            android:text="Venue : LRDC Hall, Mechanical Building"
                             android:textSize="20sp" />
                     </LinearLayout>
 

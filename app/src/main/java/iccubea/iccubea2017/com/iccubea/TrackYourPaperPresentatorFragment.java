@@ -11,19 +11,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.TextWatcher;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Spinner;
@@ -378,65 +373,65 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 displayDialog1(item,phnum,name);
                 break;
 
-            case 2:
-                name="Prof R S Kharat";
-                phnum="tel:9226094967";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            case 4:
-                name="Dr. K Rajeswari";
-                phnum="tel:9226094965";
-                displayDialog1(item,phnum,name);
-
-
-                break;
             case 3:
-                name="Dr. N Uke";
-                phnum="tel:9850035805";
+                name = "Mr. R. A. Patil";
+                phnum = "tel:9766830968";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 5:
-                name="Prof S Sambhare";;
-                phnum="tel:9226094964";
+                name = "Mr. S.S. Sambare";
+                phnum = "tel:9689907628";
+                displayDialog1(item, phnum, name);
+
+
+                break;
+            case 4:
+                name = "Mrs. S. A. Gore";
+                phnum = "tel:9860643053";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 6:
-                name="Mrs. Rajni";
-                phnum="tel:9226094917";
+                name = "Dr. N. B. Chopade";
+                phnum = "tel:9423722805";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 7:
-                name="Dr. Kinage";
+                name = "Dr. K. Kinage";
                 phnum="tel:9552969900";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 8:
-                name="Dr. Kolate";
+                name = "Dr. M.T. Kolate";
                 phnum="tel:9860446160";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 9:
-                name="Dr. V.N. Patil";
-                phnum="tel:9822431147";
+                name = "Prof. A. R. Suryawanshi";
+                phnum = "tel:9422376016";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 10:
-                name="Dr.Swati Shinde";
-                phnum="tel:9226095012";
+                name = "Dr. K. Rajeswari";
+                phnum = "tel:7066892206";
+                displayDialog1(item, phnum, name);
+
+
+                break;
+            case 2:
+                name = "Prof. J. Katti";
+                phnum = "tel:9766625746";
                 displayDialog1(item,phnum,name);
 
 

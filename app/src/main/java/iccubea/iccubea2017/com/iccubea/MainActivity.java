@@ -4,29 +4,19 @@ package iccubea.iccubea2017.com.iccubea;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Color;
-
 import android.graphics.Typeface;
-import android.os.Build;
+import android.os.Bundle;
 import android.os.CountDownTimer;
-
-
-import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -39,13 +29,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabSelectedListener;
-import com.roughike.bottombar.OnTabSelectedListener;
 
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 import org.joda.time.Period;
-
 
 import at.grabner.circleprogress.CircleProgressView;
 import at.grabner.circleprogress.TextMode;
@@ -172,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
        //  btnMoveUp = (Button) findViewById(R.id.);
        // btnMoveUp.setText("^");
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
-        dateTime = new DateTime(2017, 8, 17,10, 30);
+        dateTime = new DateTime(2018, 8, 16, 10, 30);
         dateTimeNow = DateTime.now();
         //circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
         //circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
@@ -337,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this,MainActivity.class));
                         finish();
                         TextView textView = (TextView)findViewById(R.id.textView2);
-                        textView.setText("Welcome to ICCUBEA 2017!");
+                        textView.setText("Welcome to ICCUBEA 2018!");
                         textView.setTextColor(Color.parseColor("#ff7043"));
                         if(enableProceeding)
                         {
@@ -391,7 +378,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onFinish()
                 {
 
-                    Toast.makeText(getApplicationContext(),"Conference concluded on 17th of August",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Conference concluded on 18th of August", Toast.LENGTH_LONG).show();
                 }
             }.start();
         }
@@ -406,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
 //            circleProgressViewHrs.setValue(0);
 //            circleProgressViewHrs.setText("0hrs");
             TextView textView = (TextView)findViewById(R.id.textView2);
-            textView.setText("Welcome to ICCUBEA 2017!");
+            textView.setText("Welcome to ICCUBEA 2018!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
             countDownDone = true;

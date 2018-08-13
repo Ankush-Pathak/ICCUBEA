@@ -7,7 +7,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,9 +42,9 @@ public class FragmentReportingArea extends Fragment {
         spinner = (Spinner)view.findViewById(R.id.spinnerHelpDesk);
         ArrayList categories=new ArrayList<String>();
         categories.add("Contact Help Desk");
-        categories.add( "Swati Patil");
-        categories.add("Archana Kadam");
-        categories.add("R C Sangole");
+        categories.add("Mrs. Bhandarkar");
+        categories.add("Mr. Ganesh Deshmukh");
+        categories.add("Mr. Sagar Salunke");
         ArrayAdapter dataAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,categories);
         dataAdapter.setDropDownViewResource(R.layout.dropdown_newline);
         spinner.setAdapter(dataAdapter);
@@ -70,19 +69,19 @@ public class FragmentReportingArea extends Fragment {
 
 
                     case 1:
-                        name="Swati Patil";
-                        phnum="tel:9226094931";
+                        name = "Mrunalini Bhandarkar";
+                        phnum = "tel:9765381652";
                         displayDialog1(item,phnum,name);
                         break;
 
                     case 2:
-                        name="Archana Kadam";
-                        phnum="tel:9226094970";
+                        name = "Ganesh Deshmukh";
+                        phnum = "tel:9423881868";
                         displayDialog1(item,phnum,name);
                         break;
                     case 3:
-                        name="R C Sangole";
-                        phnum="tel:9226095079";
+                        name = "Sagar Salunke";
+                        phnum = "tel:9970141188";
                         displayDialog1(item,phnum,name);
                         break;
                 }

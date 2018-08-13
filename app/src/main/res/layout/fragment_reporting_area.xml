@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fefefe"
@@ -24,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="11.5"
-        android:text="Registration time : 8:00 am to 8:45 am accompanied by breakfast."
+        android:text="Registration time : 8:00 am to 8:30 am accompanied by breakfast."
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="#f21212"
         android:textSize="18sp" />

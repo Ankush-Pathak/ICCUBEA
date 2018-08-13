@@ -1,25 +1,23 @@
 package iccubea.iccubea2017.com.iccubea;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
-import android.os.*;
+
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnMenuTabSelectedListener;
 
 //import java.util.logging.Handler;
 
@@ -31,13 +29,10 @@ public class CmtLogin extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     Handler handler;
-
+    BottomNavigationView bottomNavigationView;
    // BottomBar mbottomBar;
   //  BottomNavigationView bottomNavigationView;
     private GoogleApiClient client;
-
-    BottomNavigationView bottomNavigationView ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,7 +173,7 @@ public class CmtLogin extends AppCompatActivity {
         if (flag == 0) {
 
 
-            cmt.loadUrl("https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICCUBEA2017");
+            cmt.loadUrl("https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICCUBEA2018");
 
 
            /* while(cmt.getProgress()!=50)
