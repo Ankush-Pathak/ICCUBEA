@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
        //  btnMoveUp = (Button) findViewById(R.id.);
        // btnMoveUp.setText("^");
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
-        dateTime = new DateTime(2018, 8, 16, 10, 30);
+        dateTime = new DateTime(2018, 8, 17, 11, 30);
         dateTimeNow = DateTime.now();
         //circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
         //circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
