@@ -49,7 +49,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Cheif guest : Prof. Dr. E Balagurusamy \nME(Hons) PhD DEd FIE FIETE CEng\nFormerly Vice Chancellor, Anna University, Chennai\nIT Adviser, Government of Andhra Pradesh\nMember, Planning Commission, Tamil Nadu\nMember, Union Public Service Commission, New Delhi\nChairman, Consortium for Educational Communications\n"
+                            android:text="Prof. Oscar Castillo, Ph.D., D.Sc.\n(Research Chair of Graduate Studies, Tijuana Institute of Technology (SNI Level 3)"
                             android:textSize="20sp" />
 
                         <TextView
@@ -66,7 +66,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : August 17, 2018"
+                            android:text="Date : September 19, 2019."
                             android:textSize="20sp" />
 
                         <TextView
@@ -75,7 +75,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 10:00 AM"
+                            android:text="Time : 10:30 AM to 01:00 PM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -84,7 +84,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : New Auditorium Hall, Architecture building"
+                            android:text="Venue : Architecture Hall"
                             android:textSize="20sp" />
 
 
@@ -160,7 +160,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Mr. Milind Kulkarni \nScientist-G and Associate Head, Nano Mission and National Supercomputing Mission, Department of Science and Technology, New Delhi"
+                            android:text="Speaker : R. Venkateswaran (Venki),\n SVP, IoT Solutions, Persistent Systems"
                             android:textSize="20sp" />
 
                         <TextView
@@ -169,7 +169,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : 17 Aug, 2018"
+                            android:text="Date : 19th September, 2019"
                             android:textSize="20sp" />
 
                         <TextView
@@ -178,7 +178,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 11:30 AM"
+                            android:text="Time : 10:30 AM to 01:00 PM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -187,7 +187,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : New Auditorium Hall, Architecture building"
+                            android:text="Venue : Architecture Hall"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -328,308 +328,7 @@
 
             </com.ramotion.foldingcell.FoldingCell>
 
-            <com.ramotion.foldingcell.FoldingCell
-                android:id="@+id/folding_cellKeynote3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                folding-cell:cameraHeight="40">
 
-                <FrameLayout
-                    android:id="@+id/cell_content_view3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/keynote_border"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewKeynote3"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="7dp"
-                            android:text="Tutorial Session 1"
-                            android:textSize="22sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote3Speaker"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Speaker : Mrs. Rashmi Tambe \nTEDx Speaker ,Practice Head – Business and Experience Transformation"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/textViewKeynote3Date"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Date : 16 Aug, 2018"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote3Time"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Time : 10:00 AM"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote3Venue"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Venue : LRDC Hall, Mechanical Building"
-                            android:textSize="20sp" />
-                    </LinearLayout>
-
-                </FrameLayout>
-                ​
-
-                <FrameLayout
-                    android:id="@+id/cell_title_view3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/keynote_plate_background">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewKeynote3FoldedTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="Tutorial Session 1"
-                            android:textColor="@color/white"
-                            android:textSize="24sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="Tap here to know more"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                </FrameLayout>
-
-            </com.ramotion.foldingcell.FoldingCell>
-
-            <com.ramotion.foldingcell.FoldingCell
-                android:id="@+id/folding_cellKeynote5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                folding-cell:cameraHeight="40">
-
-                <FrameLayout
-                    android:id="@+id/cell_content_view5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/keynote_border"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewKeynote5"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="7dp"
-                            android:text="Tutorial Session 2"
-                            android:textSize="22sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote5Speaker"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr. S. E. Talole \nDean (Technology),Professor, Scientist 'G' (DRDO)"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/textViewKeynote5Date"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Date : 16 Aug, 2018"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote5Time"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Time : 10:00 AM"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote5Venue"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Venue : LRDC Hall, Mechanical Building"
-                            android:textSize="20sp" />
-                    </LinearLayout>
-
-                </FrameLayout>
-                ​
-
-                <FrameLayout
-                    android:id="@+id/cell_title_view5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/keynote_plate_background">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewKeynote5FoldedTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="Tutorial Session 2"
-                            android:textColor="@color/white"
-                            android:textSize="24sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="Tap here to know more"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                </FrameLayout>
-
-            </com.ramotion.foldingcell.FoldingCell>
-
-            <com.ramotion.foldingcell.FoldingCell
-                android:id="@+id/folding_cellKeynote4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                folding-cell:cameraHeight="40">
-
-                <FrameLayout
-                    android:id="@+id/cell_content_view4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/keynote_border"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewKeynote4"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="7dp"
-                            android:text="Valedictory"
-                            android:textSize="22sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote4Speaker"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Speaker : Dr. Aniruddha Joshi \nFounder and CEO, Atreya Innovations, Pune"
-                            android:textSize="20sp" />
-
-
-                        <TextView
-                            android:id="@+id/textViewKeynote4Date"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Date : 18 Aug, 2018"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote4Time"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Time : 4:00 PM"
-                            android:textSize="20sp" />
-
-                        <TextView
-                            android:id="@+id/textViewKeynote4Venue"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginBottom="3dp"
-                            android:layout_marginLeft="7dp"
-                            android:text="Venue : LRDC Hall, Mechanical Building"
-                            android:textSize="20sp" />
-                    </LinearLayout>
-
-                </FrameLayout>
-                ​
-
-                <FrameLayout
-                    android:id="@+id/cell_title_view4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/keynote_plate_background">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/textViewKeynote4FoldedTitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="Valedictory"
-                            android:textColor="@color/white"
-                            android:textSize="24sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="7dp"
-                            android:text="Tap here to know more"
-                            android:textColor="@color/white"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-
-                </FrameLayout>
-
-            </com.ramotion.foldingcell.FoldingCell>
         </LinearLayout>
 
 

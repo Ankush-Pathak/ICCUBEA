@@ -173,7 +173,7 @@ public class CmtLogin extends AppCompatActivity {
         if (flag == 0) {
 
 
-            cmt.loadUrl("https://cmt3.research.microsoft.com/User/Login?ReturnUrl=%2FICCUBEA2018");
+            cmt.loadUrl("https://cmt3.research.microsoft.com/iccubea2019");
 
 
            /* while(cmt.getProgress()!=50)

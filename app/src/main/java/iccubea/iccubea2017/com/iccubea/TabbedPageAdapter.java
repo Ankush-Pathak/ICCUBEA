@@ -25,12 +25,16 @@ public class TabbedPageAdapter extends FragmentPagerAdapter {
             case 0:
                 KeynoteFragment keynoteFragment = new KeynoteFragment();
                 return keynoteFragment;
-            case 2:
-                AboutPCCOEFrag pccoeFrag = new AboutPCCOEFrag();
-                return pccoeFrag;
             case 1:
+                QuickTalksFrag qtFrag = new QuickTalksFrag();
+                return qtFrag;
+            case 2:
                 AboutICCUBEAFrag iccubeaFrag = new AboutICCUBEAFrag();
                 return iccubeaFrag;
+            case 3:
+                AboutPCCOEFrag pccoeFrag = new AboutPCCOEFrag();
+                return pccoeFrag;
+
             default:
                 return null;
         }

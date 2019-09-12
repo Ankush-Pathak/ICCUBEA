@@ -114,7 +114,7 @@
         android:layout_alignParentStart="true"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="General chairs \nDr. S. V. Shinde &amp; Dr. A. D. Thakare"
+        android:text="General chairs \nDr. K. Rajeswari &amp; Dr. Leena Sharma"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 

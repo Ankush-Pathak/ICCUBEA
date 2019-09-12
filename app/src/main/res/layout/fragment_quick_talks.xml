@@ -1,0 +1,540 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:folding-cell="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    tools:context=".KeynoteFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+
+            <com.ramotion.foldingcell.FoldingCell
+                android:id="@+id/folding_cellQuickTalk1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                folding-cell:animationDuration="1500"
+                folding-cell:cameraHeight="40">
+
+                <FrameLayout
+                    android:id="@+id/cell_content_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_border"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewQt1_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 1"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt1_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Mr. Rutwik Pungliya, Senior Regional Manager,\n The University of Western Australia"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:id="@+id/textViewQt1_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Date : 20/09/2019"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt1_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Time : 10:30 - 1:00"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt1_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Venue: LRDC Hall"
+                            android:textSize="20sp" />
+
+
+                    </LinearLayout>
+
+                </FrameLayout>
+                ​
+
+                <FrameLayout
+                    android:id="@+id/cell_title_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_plate_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewQt1_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 1"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt1_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tap here to know more"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.ramotion.foldingcell.FoldingCell>
+
+            <com.ramotion.foldingcell.FoldingCell
+                android:id="@+id/folding_cellQuickTalk2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                folding-cell:cameraHeight="40">
+
+                <FrameLayout
+                    android:id="@+id/cell_content_view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_border"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewQt2_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 2"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt2_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Speaker : Mr. Prashant B., \n Sr. Lead Machine Learning/ Artificial Intelligence, Whirlpool Corporation
+"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt2_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Date: 20/09/2019"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt2_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Time : 10:30 - 1:00"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textView2_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Venue : LRDC Hall"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+                ​
+
+                <FrameLayout
+                    android:id="@+id/cell_title_view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_plate_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewQt2_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 2"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tap here to know more"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.ramotion.foldingcell.FoldingCell>
+
+            <com.ramotion.foldingcell.FoldingCell
+                android:id="@+id/folding_cellQuickTalk3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                folding-cell:cameraHeight="40">
+
+                <FrameLayout
+                    android:id="@+id/cell_content_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_border"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewQt3_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 3"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt3_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Speaker : Mr.  Aniruddha Joshi \nFounder, Atreya Innovation, Pune\n"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:id="@+id/textViewQt3_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Date : 20/09/2019"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt3_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Time : 10:30 - 1:00"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt3_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Venue : LRDC Hall"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+                ​
+
+                <FrameLayout
+                    android:id="@+id/cell_title_view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_plate_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewKeynote2FoldedTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 3"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tap here to know more"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.ramotion.foldingcell.FoldingCell>
+
+
+            <com.ramotion.foldingcell.FoldingCell
+                android:id="@+id/folding_cellQuickTalk4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                folding-cell:cameraHeight="40">
+
+                <FrameLayout
+                    android:id="@+id/cell_content_view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_border"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewQt4_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 4"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt4_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Speaker : Dr. M. Kartikeyan \nSenior Principal Scientist: Chemical Engineering and Process Development National Chemical Laboratories, Pune\n"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:id="@+id/textViewQt4_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Date : 20/09/2019"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt4_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Time : 10:30 - 1:00"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt4_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Venue : LRDC Hall"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+                ​
+
+                <FrameLayout
+                    android:id="@+id/cell_title_view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_plate_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewKeynote3FoldedTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 4"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tap here to know more"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.ramotion.foldingcell.FoldingCell>
+
+            <com.ramotion.foldingcell.FoldingCell
+                android:id="@+id/folding_cellQuickTalk5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                folding-cell:cameraHeight="40">
+
+                <FrameLayout
+                    android:id="@+id/cell_content_view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_border"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewQt5_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 5"
+                            android:textSize="22sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt5_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Speaker : Dr. L. Ramesh \nDean Dr. MGR Educational and Research Institute Chemical Energy Efficiency Research Group Chennai\n"
+                            android:textSize="20sp" />
+
+
+                        <TextView
+                            android:id="@+id/textViewQt5_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Date : 20/09/2019"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt5_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Time : 10:30 - 1:00"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/textViewQt5_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginLeft="7dp"
+                            android:text="Venue : LRDC Hall"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+                ​
+
+                <FrameLayout
+                    android:id="@+id/cell_title_view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/keynote_plate_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewKeynote4FoldedTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Speaker 5"
+                            android:textColor="@color/white"
+                            android:textSize="24sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:text="Tap here to know more"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </com.ramotion.foldingcell.FoldingCell>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
