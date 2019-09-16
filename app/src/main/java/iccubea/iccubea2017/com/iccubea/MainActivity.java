@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
        //  btnMoveUp = (Button) findViewById(R.id.);
        // btnMoveUp.setText("^");
         circleProgressViewSec = (CircleProgressView) findViewById(R.id.circularProgressSec);
-        dateTime = new DateTime(2018, 8, 17, 11, 30);
+        dateTime = new DateTime(2019, 9, 19, 10, 30);
         dateTimeNow = DateTime.now();
         //circleProgressViewHrs = (CircleProgressView) findViewById(R.id.circularProgressHrs);
         //circleProgressViewMin = (CircleProgressView) findViewById(R.id.circularProgressMin);
@@ -324,7 +324,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this,MainActivity.class));
                         finish();
                         TextView textView = (TextView)findViewById(R.id.textView2);
-                        textView.setText("Welcome to ICCUBEA 2018!");
+                        textView.setText("Welcome to ICCUBEA 2019!");
                         textView.setTextColor(Color.parseColor("#ff7043"));
                         if(enableProceeding)
                         {
@@ -346,20 +346,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if(periodSec.getSeconds() == 60 || periodSec.getSeconds() == 59)
                     {
-                        String text=String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + " Days : "
-                                +String.valueOf(periodHrs.getHours()) + " Hrs : "
-                                +String.valueOf(periodMin.getMinutes()) + " Min : "
-                                +String.valueOf(periodSec.getSeconds()) + " Sec";
+                        String text = Days.daysBetween(dateTimeNow, dateTime).getDays() + " Days : "
+                                + periodHrs.getHours() + " Hrs : "
+                                + periodMin.getMinutes() + " Min : "
+                                + periodSec.getSeconds() + " Sec";
                         circleProgressViewSec.setText(text);
                         circleProgressViewSec.setValue(periodSec.getSeconds());
                     }
                     else {
 
 
-                        String text = String.valueOf(Days.daysBetween(dateTimeNow, dateTime).getDays()) + " Days : "
-                                + String.valueOf(periodHrs.getHours()) + " Hrs : "
-                                + String.valueOf(periodMin.getMinutes()) + " Min : "
-                                + String.valueOf(periodSec.getSeconds()) + " Sec";
+                        String text = Days.daysBetween(dateTimeNow, dateTime).getDays() + " Days : "
+                                + periodHrs.getHours() + " Hrs : "
+                                + periodMin.getMinutes() + " Min : "
+                                + periodSec.getSeconds() + " Sec";
                         circleProgressViewSec.setText(text);
                         circleProgressViewSec.setValueAnimated(periodSec.getSeconds());
                     }
@@ -393,7 +393,7 @@ public class MainActivity extends AppCompatActivity {
 //            circleProgressViewHrs.setValue(0);
 //            circleProgressViewHrs.setText("0hrs");
             TextView textView = (TextView)findViewById(R.id.textView2);
-            textView.setText("Welcome to ICCUBEA 2018!");
+            textView.setText("Welcome to ICCUBEA 2019!");
             textView.setTextColor(Color.parseColor("#ff7043"));
             frag_flag = 0;
             countDownDone = true;

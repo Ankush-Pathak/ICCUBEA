@@ -170,16 +170,18 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
         spinner=(Spinner)view.findViewById(R.id.spinner);
         categories=new ArrayList<String>();
         categories.add("Contact respective Incharges");
-        categories.add( "Image Processing and Computer Vision");
+        categories.add("Cognitive and Machine Intelligence");
         categories.add("Computer and Communication Security");
-        categories.add("Databases and Big Data");
-        categories.add("HPC, Cloud and Social Network Analysis");
-        categories.add("IOT and Computer Networks");
-        categories.add("Signal Processing and Applications");
-        categories.add("Digital Communication");
-        categories.add("VLSI and Embedded Systems");
         categories.add("Control and Automation");
-        categories.add("Cognitive and Intelligent Systems");
+        categories.add("Databases and Big Data");
+        categories.add("Digital Communications");
+        categories.add("HPC, Cloud, Mobile and Social NW Computing");
+        categories.add("Image Processing and Computer Vision");
+        categories.add("Internet of Things and Computer Network");
+        categories.add("Performance Engg.");
+        categories.add("Signal Processing and Applications");
+        categories.add("Social applications");
+        categories.add("VLSI and Embedded Systems");
         dataAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,categories);
         dataAdapter.setDropDownViewResource(R.layout.dropdown_newline);
         spinner.setAdapter(dataAdapter);
@@ -265,7 +267,7 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
                 paperId.setSpan(new StyleSpan(Typeface.BOLD),0,"PaperID".length(),0);
                 track = new SpannableString("Track");
                 track.setSpan(new StyleSpan(Typeface.BOLD),0,"Track".length(),0);
-                displayResultList.add(name + " : " + p.getAuthor().substring(0,Math.min(15,p.getAuthor().length())) + "\n" + paperId + " : " + String.valueOf(p.getPid()) + "\n" + track + " : " + p.getTrack());
+                displayResultList.add(name + " : " + p.getAuthor().substring(0, Math.min(15, p.getAuthor().length())) + "\n" + paperId + " : " + p.getPid() + "\n" + track + " : " + p.getTrack());
             }
         }
         displayFinalList();
@@ -368,75 +370,75 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
 
             case 1:
-                name="Dr. Pravin Futane";
-                phnum="tel:9823033342";
-                displayDialog1(item,phnum,name);
-                break;
-
-            case 3:
-                name = "Mr. R. A. Patil";
-                phnum = "tel:9766830968";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            case 5:
-                name = "Mr. S.S. Sambare";
-                phnum = "tel:9689907628";
+                name = "Prof. Anagha Chaudhari";
+                phnum = "tel:9881957427";
                 displayDialog1(item, phnum, name);
-
-
                 break;
-            case 4:
-                name = "Mrs. S. A. Gore";
-                phnum = "tel:9860643053";
-                displayDialog1(item,phnum,name);
 
-
-                break;
-            case 6:
-                name = "Dr. N. B. Chopade";
-                phnum = "tel:9423722805";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            case 7:
-                name = "Dr. K. Kinage";
-                phnum="tel:9552969900";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            case 8:
-                name = "Dr. M.T. Kolate";
-                phnum="tel:9860446160";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            case 9:
-                name = "Prof. A. R. Suryawanshi";
-                phnum = "tel:9422376016";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            case 10:
-                name = "Dr. K. Rajeswari";
-                phnum = "tel:7066892206";
-                displayDialog1(item, phnum, name);
-
-
-                break;
             case 2:
-                name = "Prof. J. Katti";
+                name = "Prof. Jayashree Katti";
                 phnum = "tel:9766625746";
                 displayDialog1(item,phnum,name);
 
 
                 break;
-          /*  case 11:
+            case 3:
+                name = "Prof. Manish Narkhede";
+                phnum = "tel:9766625746";
+                displayDialog1(item, phnum, name);
+
+
+                break;
+            case 4:
+                name = "Prof. Alka Londhe";
+                phnum = "tel:8788457063";
+                displayDialog1(item, phnum, name);
+
+
+                break;
+            case 5:
+                name = "Prof. Ganesh Rahate";
+                phnum = "tel:9834450496";
+                displayDialog1(item,phnum,name);
+
+
+                break;
+            case 6:
+                name = "Prof. Sonal Gore";
+                phnum = "tel:9860643053";
+                displayDialog1(item,phnum,name);
+
+
+                break;
+            case 7:
+                name = "Prof. Deepa Abin";
+                phnum = "tel:9922415717";
+                displayDialog1(item,phnum,name);
+
+
+                break;
+            case 8:
+                name = "Prof. Prakash Sontakke";
+                phnum = "tel:8983314995";
+                displayDialog1(item,phnum,name);
+
+
+                break;
+            case 9:
+                name = "Dr. Anuradha Thakare";
+                phnum = "tel:9011698166";
+                displayDialog1(item, phnum, name);
+
+
+                break;
+            case 10:
+                name = "Prof. Jyoti Kulkarni";
+                phnum = "tel:7020492816";
+                displayDialog1(item, phnum, name);
+
+
+                break;
+            case 11:
                 name="Prof Santvana Gudhade";
                 phnum="tel:8380095194";
                 displayDialog1(item,phnum,name);
@@ -444,34 +446,17 @@ public class TrackYourPaperPresentatorFragment extends Fragment implements Adapt
 
                 break;
             case 12:
-                name="Dr.Jayant Umale";
-                phnum="tel:9226094961";
+                name = "Prof. Varsha Harpale";
+                phnum = "tel:9226772743";
                 displayDialog1(item,phnum,name);
 
 
                 break;
             case 13:
-                name="Prof S S Deshmukh";
-                phnum="tel:9226094981";
+                name = "Prof. Deepti Khurge";
+                phnum = "tel:8411045575";
                 displayDialog1(item,phnum,name);
-
-
                 break;
-            case 14:
-                name="Prof Rahul Patil";
-                phnum="tel:9226094975";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            case 15:
-                name="Prof S S Sambare";
-                phnum="tel:9226094964";
-                displayDialog1(item,phnum,name);
-
-
-                break;
-            */
         }
         handler = new Handler();
         handler.postDelayed(new Runnable() {

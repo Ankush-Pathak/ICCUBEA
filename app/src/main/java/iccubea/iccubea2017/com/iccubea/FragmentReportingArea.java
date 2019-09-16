@@ -42,9 +42,9 @@ public class FragmentReportingArea extends Fragment {
         spinner = (Spinner)view.findViewById(R.id.spinnerHelpDesk);
         ArrayList categories=new ArrayList<String>();
         categories.add("Contact Help Desk");
-        categories.add("Mrs. Bhandarkar");
-        categories.add("Mr. Ganesh Deshmukh");
-        categories.add("Mr. Sagar Salunke");
+        categories.add("Mr. S. Hule");
+        //categories.add("Mr. Ganesh Deshmukh");
+        //categories.add("Mr. Sagar Salunke");
         ArrayAdapter dataAdapter=new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,categories);
         dataAdapter.setDropDownViewResource(R.layout.dropdown_newline);
         spinner.setAdapter(dataAdapter);
@@ -69,19 +69,8 @@ public class FragmentReportingArea extends Fragment {
 
 
                     case 1:
-                        name = "Mrunalini Bhandarkar";
-                        phnum = "tel:9765381652";
-                        displayDialog1(item,phnum,name);
-                        break;
-
-                    case 2:
-                        name = "Ganesh Deshmukh";
-                        phnum = "tel:9423881868";
-                        displayDialog1(item,phnum,name);
-                        break;
-                    case 3:
-                        name = "Sagar Salunke";
-                        phnum = "tel:9970141188";
+                        name = "Mr. S. Hule";
+                        phnum = "tel:9921279828";
                         displayDialog1(item,phnum,name);
                         break;
                 }

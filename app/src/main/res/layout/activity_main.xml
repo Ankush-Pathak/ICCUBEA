@@ -124,7 +124,7 @@
         android:layout_marginTop="10dp"
         android:foregroundGravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:text="Countdown for ICCUBEA 2018"
+        android:text="Countdown for ICCUBEA 2019"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="35sp" />
     <!--<FrameLayout

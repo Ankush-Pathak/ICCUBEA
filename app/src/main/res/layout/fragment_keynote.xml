@@ -84,7 +84,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : Architecture Hall"
+                            android:text="Venue : Architecture Building Seminar Hall"
                             android:textSize="20sp" />
 
 
@@ -187,7 +187,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : Architecture Hall"
+                            android:text="Venue : Architecture Building Seminar Hall"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -251,7 +251,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="7dp"
-                            android:text="Keynote 2"
+                            android:text="Valedictory"
                             android:textSize="22sp" />
 
                         <TextView
@@ -260,7 +260,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Speaker : Mr. Dinanath Kholkar \nVice President, Global Head of Analytics and Insights, TCS\nChairman, IEEE Pune Section"
+                            android:text="Speaker : Dr. Hari Sahastrabuddhe, Ph. D. IIT Kanpur"
                             android:textSize="20sp" />
 
 
@@ -270,7 +270,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Date : 17 Aug, 2018"
+                            android:text="Date : 21 Sep, 2019"
                             android:textSize="20sp" />
 
                         <TextView
@@ -279,7 +279,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Time : 12:05 PM"
+                            android:text="Time : 04:00 PM"
                             android:textSize="20sp" />
 
                         <TextView
@@ -288,7 +288,7 @@
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
                             android:layout_marginLeft="7dp"
-                            android:text="Venue : Seminar Hall, 4th floor Academic Building"
+                            android:text="Venue : LRDC Hall"
                             android:textSize="20sp" />
                     </LinearLayout>
 
@@ -311,7 +311,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="7dp"
-                            android:text="Keynote 2"
+                            android:text="Valedictory"
                             android:textColor="@color/white"
                             android:textSize="24sp" />
 
